@@ -1,0 +1,5164 @@
+{
+  "categories": [
+    {
+      "id": "cat-1",
+      "name": "Frutas"
+    },
+    {
+      "id": "cat-2",
+      "name": "Verduras y hortalizas"
+    },
+    {
+      "id": "cat-3",
+      "name": "Chiles y hierbas frescas"
+    },
+    {
+      "id": "cat-4",
+      "name": "Res y otras carnes rojas"
+    },
+    {
+      "id": "cat-5",
+      "name": "Cerdo"
+    },
+    {
+      "id": "cat-6",
+      "name": "Pollo y pavo"
+    },
+    {
+      "id": "cat-7",
+      "name": "Pescados y mariscos"
+    },
+    {
+      "id": "cat-8",
+      "name": "Carnes frías y embutidos"
+    },
+    {
+      "id": "cat-9",
+      "name": "Lácteos, huevo y alternativas"
+    },
+    {
+      "id": "cat-10",
+      "name": "Quesos"
+    },
+    {
+      "id": "cat-11",
+      "name": "Panadería y tortillas"
+    },
+    {
+      "id": "cat-12",
+      "name": "Cereales, arroz, pasta y harinas"
+    },
+    {
+      "id": "cat-13",
+      "name": "Leguminosas"
+    },
+    {
+      "id": "cat-14",
+      "name": "Semillas, nueces y fruta deshidratada"
+    },
+    {
+      "id": "cat-15",
+      "name": "Aceites, vinagres y grasas"
+    },
+    {
+      "id": "cat-16",
+      "name": "Sal, especias y condimentos secos"
+    },
+    {
+      "id": "cat-17",
+      "name": "Chiles secos, salsas y aderezos"
+    },
+    {
+      "id": "cat-18",
+      "name": "Conservas y enlatados"
+    },
+    {
+      "id": "cat-19",
+      "name": "Repostería y endulzantes"
+    },
+    {
+      "id": "cat-20",
+      "name": "Café, té e infusiones"
+    },
+    {
+      "id": "cat-21",
+      "name": "Bebidas"
+    },
+    {
+      "id": "cat-22",
+      "name": "Botanas y golosinas"
+    },
+    {
+      "id": "cat-23",
+      "name": "Congelados"
+    },
+    {
+      "id": "cat-24",
+      "name": "Comida preparada e instantánea"
+    },
+    {
+      "id": "cat-25",
+      "name": "Bebé"
+    },
+    {
+      "id": "cat-26",
+      "name": "Higiene personal"
+    },
+    {
+      "id": "cat-27",
+      "name": "Higiene bucal, menstrual y sexual"
+    },
+    {
+      "id": "cat-28",
+      "name": "Limpieza del hogar"
+    },
+    {
+      "id": "cat-29",
+      "name": "Accesorios de limpieza"
+    },
+    {
+      "id": "cat-30",
+      "name": "Papel, envolturas y desechables"
+    },
+    {
+      "id": "cat-31",
+      "name": "Utensilios de cocina"
+    },
+    {
+      "id": "cat-32",
+      "name": "Hogar y mantenimiento"
+    },
+    {
+      "id": "cat-33",
+      "name": "Mascotas"
+    },
+    {
+      "id": "cat-34",
+      "name": "Ropa y textiles"
+    },
+    {
+      "id": "cat-35",
+      "name": "Papelería y escolares"
+    },
+    {
+      "id": "cat-36",
+      "name": "Salud y botiquín"
+    },
+    {
+      "id": "cat-37",
+      "name": "Alimentación especial e internacional"
+    },
+    {
+      "id": "cat-38",
+      "name": "Celebraciones y misceláneos"
+    }
+  ],
+  "products": [
+    {
+      "id": "p-manzana",
+      "name": "Manzana",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pera",
+      "name": "Pera",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-platano",
+      "name": "Plátano",
+      "category": "Frutas",
+      "aliases": [
+        "plátanos",
+        "banana",
+        "bananas"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-naranja",
+      "name": "Naranja",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mandarina",
+      "name": "Mandarina",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-limon",
+      "name": "Limón",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lima",
+      "name": "Lima",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-toronja",
+      "name": "Toronja",
+      "category": "Frutas",
+      "aliases": [
+        "pomelo"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pina",
+      "name": "Piña",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-papaya",
+      "name": "Papaya",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mango",
+      "name": "Mango",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sandia",
+      "name": "Sandía",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-melon",
+      "name": "Melón",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-uva",
+      "name": "Uva",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fresa",
+      "name": "Fresa",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-frambuesa",
+      "name": "Frambuesa",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-zarzamora",
+      "name": "Zarzamora",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mora-azul",
+      "name": "Mora azul",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cereza",
+      "name": "Cereza",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-durazno",
+      "name": "Durazno",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-nectarina",
+      "name": "Nectarina",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-ciruela",
+      "name": "Ciruela",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chabacano",
+      "name": "Chabacano",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-kiwi",
+      "name": "Kiwi",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-guayaba",
+      "name": "Guayaba",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-granada",
+      "name": "Granada",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-higo",
+      "name": "Higo",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tuna",
+      "name": "Tuna",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pitaya",
+      "name": "Pitaya",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-coco",
+      "name": "Coco",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tamarindo",
+      "name": "Tamarindo",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tejocote",
+      "name": "Tejocote",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-caqui",
+      "name": "Caqui",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lichi",
+      "name": "Lichi",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-maracuya",
+      "name": "Maracuyá",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-guanabana",
+      "name": "Guanábana",
+      "category": "Frutas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jitomate",
+      "name": "Jitomate",
+      "category": "Verduras y hortalizas",
+      "aliases": [
+        "tomate",
+        "tomates",
+        "tomate rojo",
+        "tomates rojos"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tomate-verde",
+      "name": "Tomate verde",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cebolla-blanca",
+      "name": "Cebolla blanca",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cebolla-morada",
+      "name": "Cebolla morada",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cebolla-cambray",
+      "name": "Cebolla cambray",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-ajo",
+      "name": "Ajo",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-papa",
+      "name": "Papa",
+      "category": "Verduras y hortalizas",
+      "aliases": [
+        "papas",
+        "patata"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-camote",
+      "name": "Camote",
+      "category": "Verduras y hortalizas",
+      "aliases": [
+        "batata"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-zanahoria",
+      "name": "Zanahoria",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-calabacita",
+      "name": "Calabacita",
+      "category": "Verduras y hortalizas",
+      "aliases": [
+        "zucchini"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-calabaza-de-castilla",
+      "name": "Calabaza de Castilla",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pepino",
+      "name": "Pepino",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chayote",
+      "name": "Chayote",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jicama",
+      "name": "Jícama",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-betabel",
+      "name": "Betabel",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-rabano",
+      "name": "Rábano",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-nabo",
+      "name": "Nabo",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-berenjena",
+      "name": "Berenjena",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-brocoli",
+      "name": "Brócoli",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-coliflor",
+      "name": "Coliflor",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-col-blanca",
+      "name": "Col blanca",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-col-morada",
+      "name": "Col morada",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lechuga",
+      "name": "Lechuga",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-espinaca",
+      "name": "Espinaca",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-acelga",
+      "name": "Acelga",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-kale",
+      "name": "Kale",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-apio",
+      "name": "Apio",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-poro",
+      "name": "Poro",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-esparrago",
+      "name": "Espárrago",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-ejote",
+      "name": "Ejote",
+      "category": "Verduras y hortalizas",
+      "aliases": [
+        "judía verde"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chicharo",
+      "name": "Chícharo",
+      "category": "Verduras y hortalizas",
+      "aliases": [
+        "guisante"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-elote",
+      "name": "Elote",
+      "category": "Verduras y hortalizas",
+      "aliases": [
+        "maíz tierno"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-nopal",
+      "name": "Nopal",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-alcachofa",
+      "name": "Alcachofa",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aguacate",
+      "name": "Aguacate",
+      "category": "Verduras y hortalizas",
+      "aliases": [
+        "aguacates"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-champinon",
+      "name": "Champiñón",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-seta",
+      "name": "Seta",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-portobello",
+      "name": "Portobello",
+      "category": "Verduras y hortalizas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-jalapeno",
+      "name": "Chile jalapeño",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [
+        "jalapeño",
+        "jalapeños"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-serrano",
+      "name": "Chile serrano",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-poblano",
+      "name": "Chile poblano",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-habanero",
+      "name": "Chile habanero",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-de-arbol-fresco",
+      "name": "Chile de árbol fresco",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-guero",
+      "name": "Chile güero",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-chilaca",
+      "name": "Chile chilaca",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-morron-rojo",
+      "name": "Chile morrón rojo",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [
+        "pimiento rojo"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-morron-verde",
+      "name": "Chile morrón verde",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-morron-amarillo",
+      "name": "Chile morrón amarillo",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cilantro",
+      "name": "Cilantro",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-perejil",
+      "name": "Perejil",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-epazote",
+      "name": "Epazote",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-hierbabuena",
+      "name": "Hierbabuena",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-menta",
+      "name": "Menta",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-albahaca",
+      "name": "Albahaca",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-romero-fresco",
+      "name": "Romero fresco",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tomillo-fresco",
+      "name": "Tomillo fresco",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-eneldo-fresco",
+      "name": "Eneldo fresco",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-carne-molida-de-res",
+      "name": "Carne molida de res",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bistec-de-res",
+      "name": "Bistec de res",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-milanesa-de-res",
+      "name": "Milanesa de res",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-carne-para-guisar",
+      "name": "Carne para guisar",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-carne-para-deshebrar",
+      "name": "Carne para deshebrar",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-carne-para-asar",
+      "name": "Carne para asar",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-arrachera",
+      "name": "Arrachera",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-rib-eye",
+      "name": "Rib eye",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sirloin",
+      "name": "Sirloin",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-diezmillo",
+      "name": "Diezmillo",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aguja-nortena",
+      "name": "Aguja norteña",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-costilla-de-res",
+      "name": "Costilla de res",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chambarete",
+      "name": "Chambarete",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-falda",
+      "name": "Falda",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-higado-de-res",
+      "name": "Hígado de res",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lengua-de-res",
+      "name": "Lengua de res",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-carne-de-cordero",
+      "name": "Carne de cordero",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chuleta-de-cordero",
+      "name": "Chuleta de cordero",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-carne-de-cabrito",
+      "name": "Carne de cabrito",
+      "category": "Res y otras carnes rojas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-carne-molida-de-cerdo",
+      "name": "Carne molida de cerdo",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chuleta-de-cerdo",
+      "name": "Chuleta de cerdo",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lomo-de-cerdo",
+      "name": "Lomo de cerdo",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pierna-de-cerdo",
+      "name": "Pierna de cerdo",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-espaldilla-de-cerdo",
+      "name": "Espaldilla de cerdo",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-costilla-de-cerdo",
+      "name": "Costilla de cerdo",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-panceta",
+      "name": "Panceta",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tocino-fresco",
+      "name": "Tocino fresco",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-carne-para-carnitas",
+      "name": "Carne para carnitas",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-carne-para-pastor",
+      "name": "Carne para pastor",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chicharron",
+      "name": "Chicharrón",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-manteca-de-cerdo",
+      "name": "Manteca de cerdo",
+      "category": "Cerdo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pollo-entero",
+      "name": "Pollo entero",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pechuga-con-hueso",
+      "name": "Pechuga con hueso",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pechuga-sin-hueso",
+      "name": "Pechuga sin hueso",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-muslo-de-pollo",
+      "name": "Muslo de pollo",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pierna-de-pollo",
+      "name": "Pierna de pollo",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-alas-de-pollo",
+      "name": "Alas de pollo",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fajitas-de-pollo",
+      "name": "Fajitas de pollo",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-milanesa-de-pollo",
+      "name": "Milanesa de pollo",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pollo-molido",
+      "name": "Pollo molido",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-menudencias-de-pollo",
+      "name": "Menudencias de pollo",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pavo-entero",
+      "name": "Pavo entero",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pechuga-de-pavo",
+      "name": "Pechuga de pavo",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pavo-molido",
+      "name": "Pavo molido",
+      "category": "Pollo y pavo",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-filete-de-tilapia",
+      "name": "Filete de tilapia",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salmon",
+      "name": "Salmón",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-atun-fresco",
+      "name": "Atún fresco",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pescado-blanco",
+      "name": "Pescado blanco",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-robalo",
+      "name": "Robalo",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-huachinango",
+      "name": "Huachinango",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-trucha",
+      "name": "Trucha",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sardina-fresca",
+      "name": "Sardina fresca",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bacalao",
+      "name": "Bacalao",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-camaron",
+      "name": "Camarón",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pulpo",
+      "name": "Pulpo",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-calamar",
+      "name": "Calamar",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mejillon",
+      "name": "Mejillón",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-almeja",
+      "name": "Almeja",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-ostion",
+      "name": "Ostión",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jaiba",
+      "name": "Jaiba",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-surimi",
+      "name": "Surimi",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mezcla-de-mariscos",
+      "name": "Mezcla de mariscos",
+      "category": "Pescados y mariscos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jamon-de-pierna",
+      "name": "Jamón de pierna",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jamon-de-pavo",
+      "name": "Jamón de pavo",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jamon-de-pollo",
+      "name": "Jamón de pollo",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salchicha-de-cerdo",
+      "name": "Salchicha de cerdo",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salchicha-de-pavo",
+      "name": "Salchicha de pavo",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salchicha-de-res",
+      "name": "Salchicha de res",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chorizo",
+      "name": "Chorizo",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-longaniza",
+      "name": "Longaniza",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salami",
+      "name": "Salami",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pepperoni",
+      "name": "Pepperoni",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mortadela",
+      "name": "Mortadela",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tocino",
+      "name": "Tocino",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jamon-serrano",
+      "name": "Jamón serrano",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-roast-beef",
+      "name": "Roast beef",
+      "category": "Carnes frías y embutidos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-leche-entera",
+      "name": "Leche entera",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [
+        "leche",
+        "leches"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-leche-semidescremada",
+      "name": "Leche semidescremada",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-leche-descremada",
+      "name": "Leche descremada",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-leche-deslactosada",
+      "name": "Leche deslactosada",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-leche-evaporada",
+      "name": "Leche evaporada",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-leche-condensada",
+      "name": "Leche condensada",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-leche-en-polvo",
+      "name": "Leche en polvo",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-crema",
+      "name": "Crema",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-media-crema",
+      "name": "Media crema",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-crema-para-batir",
+      "name": "Crema para batir",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mantequilla",
+      "name": "Mantequilla",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-yogur-natural",
+      "name": "Yogur natural",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-yogur-griego",
+      "name": "Yogur griego",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-yogur-bebible",
+      "name": "Yogur bebible",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-kefir",
+      "name": "Kéfir",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jocoque",
+      "name": "Jocoque",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-huevo-de-gallina",
+      "name": "Huevo de gallina",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [
+        "huevo",
+        "huevos"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-huevo-de-codorniz",
+      "name": "Huevo de codorniz",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-claras-de-huevo",
+      "name": "Claras de huevo",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bebida-de-soya",
+      "name": "Bebida de soya",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bebida-de-almendra",
+      "name": "Bebida de almendra",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [
+        "leche de almendra"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bebida-de-avena",
+      "name": "Bebida de avena",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bebida-de-coco",
+      "name": "Bebida de coco",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bebida-de-arroz",
+      "name": "Bebida de arroz",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-yogur-vegetal",
+      "name": "Yogur vegetal",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-crema-vegetal",
+      "name": "Crema vegetal",
+      "category": "Lácteos, huevo y alternativas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-panela",
+      "name": "Queso panela",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-fresco",
+      "name": "Queso fresco",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-oaxaca",
+      "name": "Queso Oaxaca",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-asadero",
+      "name": "Queso asadero",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-chihuahua",
+      "name": "Queso Chihuahua",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-manchego",
+      "name": "Queso manchego",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-mozzarella",
+      "name": "Queso mozzarella",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-cheddar",
+      "name": "Queso cheddar",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-gouda",
+      "name": "Queso gouda",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-parmesano",
+      "name": "Queso parmesano",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-cotija",
+      "name": "Queso cotija",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-crema",
+      "name": "Queso crema",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-requeson",
+      "name": "Requesón",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-ricotta",
+      "name": "Ricotta",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cottage",
+      "name": "Cottage",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-de-cabra",
+      "name": "Queso de cabra",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-queso-azul",
+      "name": "Queso azul",
+      "category": "Quesos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bolillo",
+      "name": "Bolillo",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-telera",
+      "name": "Telera",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-baguette",
+      "name": "Baguette",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pan-de-caja-blanco",
+      "name": "Pan de caja blanco",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pan-integral",
+      "name": "Pan integral",
+      "category": "Panadería y tortillas",
+      "aliases": [
+        "pan de caja integral"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pan-multigrano",
+      "name": "Pan multigrano",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pan-para-hamburguesa",
+      "name": "Pan para hamburguesa",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pan-para-hot-dog",
+      "name": "Pan para hot dog",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pan-pita",
+      "name": "Pan pita",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bagel",
+      "name": "Bagel",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-croissant",
+      "name": "Croissant",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-concha",
+      "name": "Concha",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-muffin",
+      "name": "Muffin",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-dona",
+      "name": "Dona",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pan-tostado",
+      "name": "Pan tostado",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tortilla-de-maiz",
+      "name": "Tortilla de maíz",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tortilla-de-harina",
+      "name": "Tortilla de harina",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tortilla-integral",
+      "name": "Tortilla integral",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tostada",
+      "name": "Tostada",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-totopo",
+      "name": "Totopo",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-arroz-blanco",
+      "name": "Arroz blanco",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-arroz-integral",
+      "name": "Arroz integral",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-arroz-basmati",
+      "name": "Arroz basmati",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-arroz-para-sushi",
+      "name": "Arroz para sushi",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-avena",
+      "name": "Avena",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-quinoa",
+      "name": "Quinoa",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-amaranto",
+      "name": "Amaranto",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cebada",
+      "name": "Cebada",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cereal-de-maiz",
+      "name": "Cereal de maíz",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cereal-integral",
+      "name": "Cereal integral",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-granola",
+      "name": "Granola",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-espagueti",
+      "name": "Espagueti",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fideo",
+      "name": "Fideo",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-macarron",
+      "name": "Macarrón",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-codito",
+      "name": "Codito",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-penne",
+      "name": "Penne",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fusilli",
+      "name": "Fusilli",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pasta-para-lasana",
+      "name": "Pasta para lasaña",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pasta-integral",
+      "name": "Pasta integral",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fideo-de-arroz",
+      "name": "Fideo de arroz",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-harina-de-trigo",
+      "name": "Harina de trigo",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-harina-integral",
+      "name": "Harina integral",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-harina-de-maiz",
+      "name": "Harina de maíz",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-harina-de-arroz",
+      "name": "Harina de arroz",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-harina-de-avena",
+      "name": "Harina de avena",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-harina-de-almendra",
+      "name": "Harina de almendra",
+      "category": "Cereales, arroz, pasta y harinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-frijol-pinto",
+      "name": "Frijol pinto",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-frijol-negro",
+      "name": "Frijol negro",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-frijol-bayo",
+      "name": "Frijol bayo",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-frijol-peruano",
+      "name": "Frijol peruano",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-frijol-rojo",
+      "name": "Frijol rojo",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lenteja",
+      "name": "Lenteja",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-garbanzo",
+      "name": "Garbanzo",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-haba-seca",
+      "name": "Haba seca",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-alubia",
+      "name": "Alubia",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-soya",
+      "name": "Soya",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-frijol-refrito",
+      "name": "Frijol refrito",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-frijol-cocido",
+      "name": "Frijol cocido",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lenteja-cocida",
+      "name": "Lenteja cocida",
+      "category": "Leguminosas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chia",
+      "name": "Chía",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-linaza",
+      "name": "Linaza",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-ajonjoli",
+      "name": "Ajonjolí",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-semilla-de-girasol",
+      "name": "Semilla de girasol",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pepita-de-calabaza",
+      "name": "Pepita de calabaza",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-semilla-de-amapola",
+      "name": "Semilla de amapola",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cacahuate",
+      "name": "Cacahuate",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-almendra",
+      "name": "Almendra",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-nuez-pecana",
+      "name": "Nuez pecana",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-nuez-de-castilla",
+      "name": "Nuez de Castilla",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-nuez-de-la-india",
+      "name": "Nuez de la India",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pistache",
+      "name": "Pistache",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-avellana",
+      "name": "Avellana",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-macadamia",
+      "name": "Macadamia",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pinon",
+      "name": "Piñón",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pasa",
+      "name": "Pasa",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-arandano-deshidratado",
+      "name": "Arándano deshidratado",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-datil",
+      "name": "Dátil",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-ciruela-pasa",
+      "name": "Ciruela pasa",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-orejon-de-chabacano",
+      "name": "Orejón de chabacano",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-coco-rallado",
+      "name": "Coco rallado",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mango-deshidratado",
+      "name": "Mango deshidratado",
+      "category": "Semillas, nueces y fruta deshidratada",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aceite-de-oliva",
+      "name": "Aceite de oliva",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aceite-de-canola",
+      "name": "Aceite de canola",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aceite-de-girasol",
+      "name": "Aceite de girasol",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aceite-de-maiz",
+      "name": "Aceite de maíz",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aceite-de-aguacate",
+      "name": "Aceite de aguacate",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aceite-de-coco",
+      "name": "Aceite de coco",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aceite-de-ajonjoli",
+      "name": "Aceite de ajonjolí",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vinagre-blanco",
+      "name": "Vinagre blanco",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vinagre-de-manzana",
+      "name": "Vinagre de manzana",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vinagre-balsamico",
+      "name": "Vinagre balsámico",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vinagre-de-vino",
+      "name": "Vinagre de vino",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vinagre-de-arroz",
+      "name": "Vinagre de arroz",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-margarina",
+      "name": "Margarina",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-manteca-vegetal",
+      "name": "Manteca vegetal",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aceite-en-aerosol",
+      "name": "Aceite en aerosol",
+      "category": "Aceites, vinagres y grasas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sal-de-mesa",
+      "name": "Sal de mesa",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sal-de-grano",
+      "name": "Sal de grano",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pimienta-negra",
+      "name": "Pimienta negra",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pimienta-blanca",
+      "name": "Pimienta blanca",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pimienta-rosa",
+      "name": "Pimienta rosa",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-comino",
+      "name": "Comino",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-oregano",
+      "name": "Orégano",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-canela-en-rama",
+      "name": "Canela en rama",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-canela-molida",
+      "name": "Canela molida",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-clavo",
+      "name": "Clavo",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-laurel",
+      "name": "Laurel",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tomillo-seco",
+      "name": "Tomillo seco",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-romero-seco",
+      "name": "Romero seco",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-albahaca-seca",
+      "name": "Albahaca seca",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-paprika",
+      "name": "Paprika",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pimenton-ahumado",
+      "name": "Pimentón ahumado",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-curcuma",
+      "name": "Cúrcuma",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-curry",
+      "name": "Curry",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jengibre-molido",
+      "name": "Jengibre molido",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-nuez-moscada",
+      "name": "Nuez moscada",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-anis-estrella",
+      "name": "Anís estrella",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cardamomo",
+      "name": "Cardamomo",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-azafran",
+      "name": "Azafrán",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-ajo-en-polvo",
+      "name": "Ajo en polvo",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cebolla-en-polvo",
+      "name": "Cebolla en polvo",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-piquin",
+      "name": "Chile piquín",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-hojuelas-de-chile",
+      "name": "Hojuelas de chile",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sazonador-para-pollo",
+      "name": "Sazonador para pollo",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sazonador-para-carne",
+      "name": "Sazonador para carne",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-consome-en-polvo",
+      "name": "Consomé en polvo",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-ancho",
+      "name": "Chile ancho",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-guajillo",
+      "name": "Chile guajillo",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-pasilla",
+      "name": "Chile pasilla",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-morita",
+      "name": "Chile morita",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-cascabel",
+      "name": "Chile cascabel",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-chipotle",
+      "name": "Chile chipotle",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chile-de-arbol-seco",
+      "name": "Chile de árbol seco",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salsa-verde",
+      "name": "Salsa verde",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salsa-roja",
+      "name": "Salsa roja",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salsa-picante",
+      "name": "Salsa picante",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salsa-de-tomate",
+      "name": "Salsa de tomate",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pure-de-tomate",
+      "name": "Puré de tomate",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-catsup",
+      "name": "Cátsup",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mostaza",
+      "name": "Mostaza",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mayonesa",
+      "name": "Mayonesa",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salsa-de-soya",
+      "name": "Salsa de soya",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salsa-inglesa",
+      "name": "Salsa inglesa",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salsa-barbecue",
+      "name": "Salsa barbecue",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salsa-teriyaki",
+      "name": "Salsa teriyaki",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salsa-de-ostion",
+      "name": "Salsa de ostión",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pesto",
+      "name": "Pesto",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mole",
+      "name": "Mole",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-adobo",
+      "name": "Adobo",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aderezo-ranch",
+      "name": "Aderezo ranch",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aderezo-cesar",
+      "name": "Aderezo César",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aderezo-italiano",
+      "name": "Aderezo italiano",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vinagreta",
+      "name": "Vinagreta",
+      "category": "Chiles secos, salsas y aderezos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-atun-en-lata",
+      "name": "Atún en lata",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sardina-en-lata",
+      "name": "Sardina en lata",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-salmon-en-lata",
+      "name": "Salmón en lata",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-elote-en-lata",
+      "name": "Elote en lata",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chicharo-en-lata",
+      "name": "Chícharo en lata",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-verdura-mixta",
+      "name": "Verdura mixta",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-champinon-en-conserva",
+      "name": "Champiñón en conserva",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jalapeno-en-escabeche",
+      "name": "Jalapeño en escabeche",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chipotle-en-adobo",
+      "name": "Chipotle en adobo",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-frijol-en-lata",
+      "name": "Frijol en lata",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-garbanzo-en-conserva",
+      "name": "Garbanzo en conserva",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aceituna",
+      "name": "Aceituna",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-alcaparra",
+      "name": "Alcaparra",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pepinillo",
+      "name": "Pepinillo",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-palmito",
+      "name": "Palmito",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pina-en-almibar",
+      "name": "Piña en almíbar",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-durazno-en-almibar",
+      "name": "Durazno en almíbar",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fruta-en-almibar",
+      "name": "Fruta en almíbar",
+      "category": "Conservas y enlatados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-azucar-blanca",
+      "name": "Azúcar blanca",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-azucar-mascabado",
+      "name": "Azúcar mascabado",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-azucar-glass",
+      "name": "Azúcar glass",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-piloncillo",
+      "name": "Piloncillo",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-miel",
+      "name": "Miel",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-miel-de-agave",
+      "name": "Miel de agave",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jarabe-de-maple",
+      "name": "Jarabe de maple",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-stevia",
+      "name": "Stevia",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-edulcorante",
+      "name": "Edulcorante",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cocoa",
+      "name": "Cocoa",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chocolate-para-hornear",
+      "name": "Chocolate para hornear",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chispa-de-chocolate",
+      "name": "Chispa de chocolate",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vainilla",
+      "name": "Vainilla",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-polvo-para-hornear",
+      "name": "Polvo para hornear",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bicarbonato",
+      "name": "Bicarbonato",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-levadura",
+      "name": "Levadura",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fecula-de-maiz",
+      "name": "Fécula de maíz",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-grenetina",
+      "name": "Grenetina",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-gelatina-en-polvo",
+      "name": "Gelatina en polvo",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fondant",
+      "name": "Fondant",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-colorante-alimentario",
+      "name": "Colorante alimentario",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-granillo",
+      "name": "Granillo",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-decoracion-comestible",
+      "name": "Decoración comestible",
+      "category": "Repostería y endulzantes",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cafe-molido",
+      "name": "Café molido",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cafe-en-grano",
+      "name": "Café en grano",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cafe-soluble",
+      "name": "Café soluble",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cafe-descafeinado",
+      "name": "Café descafeinado",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-capsula-de-cafe",
+      "name": "Cápsula de café",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-te-negro",
+      "name": "Té negro",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-te-verde",
+      "name": "Té verde",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-te-blanco",
+      "name": "Té blanco",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-te-chai",
+      "name": "Té chai",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-manzanilla",
+      "name": "Manzanilla",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jamaica",
+      "name": "Jamaica",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tila",
+      "name": "Tila",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-infusion-de-jengibre",
+      "name": "Infusión de jengibre",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-matcha",
+      "name": "Matcha",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chocolate-en-polvo",
+      "name": "Chocolate en polvo",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-crema-para-cafe",
+      "name": "Crema para café",
+      "category": "Café, té e infusiones",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-agua-natural",
+      "name": "Agua natural",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-agua-mineral",
+      "name": "Agua mineral",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-agua-saborizada",
+      "name": "Agua saborizada",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-refresco",
+      "name": "Refresco",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jugo-de-naranja",
+      "name": "Jugo de naranja",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jugo-de-manzana",
+      "name": "Jugo de manzana",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jugo-de-uva",
+      "name": "Jugo de uva",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-nectar",
+      "name": "Néctar",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-agua-de-coco",
+      "name": "Agua de coco",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bebida-isotonica",
+      "name": "Bebida isotónica",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bebida-energetica",
+      "name": "Bebida energética",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cerveza",
+      "name": "Cerveza",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cerveza-sin-alcohol",
+      "name": "Cerveza sin alcohol",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vino-tinto",
+      "name": "Vino tinto",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vino-blanco",
+      "name": "Vino blanco",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vino-rosado",
+      "name": "Vino rosado",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sidra",
+      "name": "Sidra",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-hielo",
+      "name": "Hielo",
+      "category": "Bebidas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-papa-frita",
+      "name": "Papa frita",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fritura-de-maiz",
+      "name": "Fritura de maíz",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-palomita-para-microondas",
+      "name": "Palomita para microondas",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-maiz-palomero",
+      "name": "Maíz palomero",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pretzel",
+      "name": "Pretzel",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-galleta-salada",
+      "name": "Galleta salada",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cacahuate-enchilado",
+      "name": "Cacahuate enchilado",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mezcla-de-frutos-secos",
+      "name": "Mezcla de frutos secos",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-barra-de-cereal",
+      "name": "Barra de cereal",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-barra-de-proteina",
+      "name": "Barra de proteína",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-galleta-dulce",
+      "name": "Galleta dulce",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chocolate",
+      "name": "Chocolate",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-gomita",
+      "name": "Gomita",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-caramelo",
+      "name": "Caramelo",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-paleta",
+      "name": "Paleta",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chicle",
+      "name": "Chicle",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-malvavisco",
+      "name": "Malvavisco",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mazapan",
+      "name": "Mazapán",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-dulce-de-leche",
+      "name": "Dulce de leche",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-dulce-de-tamarindo",
+      "name": "Dulce de tamarindo",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-oblea",
+      "name": "Oblea",
+      "category": "Botanas y golosinas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-verdura-congelada",
+      "name": "Verdura congelada",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fruta-congelada",
+      "name": "Fruta congelada",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-papa-congelada",
+      "name": "Papa congelada",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pizza-congelada",
+      "name": "Pizza congelada",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-nugget",
+      "name": "Nugget",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-hamburguesa-congelada",
+      "name": "Hamburguesa congelada",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pescado-congelado",
+      "name": "Pescado congelado",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-camaron-congelado",
+      "name": "Camarón congelado",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-helado",
+      "name": "Helado",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-paleta-helada",
+      "name": "Paleta helada",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-masa-congelada",
+      "name": "Masa congelada",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-waffle-congelado",
+      "name": "Waffle congelado",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-comida-preparada-congelada",
+      "name": "Comida preparada congelada",
+      "category": "Congelados",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pollo-rostizado",
+      "name": "Pollo rostizado",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-ensalada-preparada",
+      "name": "Ensalada preparada",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sushi-preparado",
+      "name": "Sushi preparado",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tamal",
+      "name": "Tamal",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-empanada",
+      "name": "Empanada",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-burrito",
+      "name": "Burrito",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lasana-preparada",
+      "name": "Lasaña preparada",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sopa-instantanea",
+      "name": "Sopa instantánea",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pure-de-papa-instantaneo",
+      "name": "Puré de papa instantáneo",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-arroz-preparado",
+      "name": "Arroz preparado",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-frijol-preparado",
+      "name": "Frijol preparado",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-hummus",
+      "name": "Hummus",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-guacamole-preparado",
+      "name": "Guacamole preparado",
+      "category": "Comida preparada e instantánea",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-panal",
+      "name": "Pañal",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-panal-entrenador",
+      "name": "Pañal entrenador",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-toallita-humeda",
+      "name": "Toallita húmeda",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-crema-para-rozaduras",
+      "name": "Crema para rozaduras",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jabon-para-bebe",
+      "name": "Jabón para bebé",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-shampoo-para-bebe",
+      "name": "Shampoo para bebé",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-locion-para-bebe",
+      "name": "Loción para bebé",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-formula-infantil",
+      "name": "Fórmula infantil",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-papilla",
+      "name": "Papilla",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cereal-infantil",
+      "name": "Cereal infantil",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-biberon",
+      "name": "Biberón",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chupon",
+      "name": "Chupón",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tetina",
+      "name": "Tetina",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bolsa-para-leche-materna",
+      "name": "Bolsa para leche materna",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-detergente-para-ropa-de-bebe",
+      "name": "Detergente para ropa de bebé",
+      "category": "Bebé",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jabon-corporal",
+      "name": "Jabón corporal",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-gel-de-bano",
+      "name": "Gel de baño",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-shampoo",
+      "name": "Shampoo",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-acondicionador",
+      "name": "Acondicionador",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-desodorante",
+      "name": "Desodorante",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-crema-corporal",
+      "name": "Crema corporal",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-crema-para-manos",
+      "name": "Crema para manos",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-protector-solar",
+      "name": "Protector solar",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-balsamo-labial",
+      "name": "Bálsamo labial",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-rastrillo",
+      "name": "Rastrillo",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-repuesto-de-rastrillo",
+      "name": "Repuesto de rastrillo",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-espuma-para-afeitar",
+      "name": "Espuma para afeitar",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-papel-higienico",
+      "name": "Papel higiénico",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-panuelo-desechable",
+      "name": "Pañuelo desechable",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-algodon",
+      "name": "Algodón",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-hisopo",
+      "name": "Hisopo",
+      "category": "Higiene personal",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pasta-dental",
+      "name": "Pasta dental",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cepillo-dental",
+      "name": "Cepillo dental",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-hilo-dental",
+      "name": "Hilo dental",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-enjuague-bucal",
+      "name": "Enjuague bucal",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cepillo-interdental",
+      "name": "Cepillo interdental",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-limpiador-de-lengua",
+      "name": "Limpiador de lengua",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-toalla-sanitaria",
+      "name": "Toalla sanitaria",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tampon",
+      "name": "Tampón",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-protector-diario",
+      "name": "Protector diario",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-copa-menstrual",
+      "name": "Copa menstrual",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-preservativo",
+      "name": "Preservativo",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lubricante-personal",
+      "name": "Lubricante personal",
+      "category": "Higiene bucal, menstrual y sexual",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-detergente-para-ropa",
+      "name": "Detergente para ropa",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-suavizante",
+      "name": "Suavizante",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-quitamanchas",
+      "name": "Quitamanchas",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jabon-de-lavanderia",
+      "name": "Jabón de lavandería",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-blanqueador",
+      "name": "Blanqueador",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lavatrastes",
+      "name": "Lavatrastes",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-detergente-para-lavavajillas",
+      "name": "Detergente para lavavajillas",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-limpiador-multiusos",
+      "name": "Limpiador multiusos",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-desinfectante-de-superficies",
+      "name": "Desinfectante de superficies",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-limpiador-de-pisos",
+      "name": "Limpiador de pisos",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-limpiavidrios",
+      "name": "Limpiavidrios",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-limpiador-de-bano",
+      "name": "Limpiador de baño",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-desengrasante",
+      "name": "Desengrasante",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-limpiador-para-madera",
+      "name": "Limpiador para madera",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-limpiador-de-acero",
+      "name": "Limpiador de acero",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-aromatizante",
+      "name": "Aromatizante",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bicarbonato-de-limpieza",
+      "name": "Bicarbonato de limpieza",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-desinfectante-para-frutas-y-verduras",
+      "name": "Desinfectante para frutas y verduras",
+      "category": "Limpieza del hogar",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-esponja",
+      "name": "Esponja",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fibra",
+      "name": "Fibra",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cepillo-para-trastes",
+      "name": "Cepillo para trastes",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cepillo-para-bano",
+      "name": "Cepillo para baño",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-guante-de-limpieza",
+      "name": "Guante de limpieza",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pano-de-microfibra",
+      "name": "Paño de microfibra",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-trapo-de-cocina",
+      "name": "Trapo de cocina",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-escoba",
+      "name": "Escoba",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-recogedor",
+      "name": "Recogedor",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-trapeador",
+      "name": "Trapeador",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-repuesto-de-trapeador",
+      "name": "Repuesto de trapeador",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cubeta",
+      "name": "Cubeta",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-jalador",
+      "name": "Jalador",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bolsa-de-basura",
+      "name": "Bolsa de basura",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bolsa-compostable",
+      "name": "Bolsa compostable",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-rodillo-quitapelusa",
+      "name": "Rodillo quitapelusa",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-filtro-de-aspiradora",
+      "name": "Filtro de aspiradora",
+      "category": "Accesorios de limpieza",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-servilleta",
+      "name": "Servilleta",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-toalla-de-papel",
+      "name": "Toalla de papel",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-papel-aluminio",
+      "name": "Papel aluminio",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pelicula-plastica",
+      "name": "Película plástica",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-papel-encerado",
+      "name": "Papel encerado",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-papel-para-hornear",
+      "name": "Papel para hornear",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bolsa-hermetica",
+      "name": "Bolsa hermética",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bolsa-para-congelar",
+      "name": "Bolsa para congelar",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-plato-desechable",
+      "name": "Plato desechable",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vaso-desechable",
+      "name": "Vaso desechable",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cubierto-desechable",
+      "name": "Cubierto desechable",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-popote-reutilizable",
+      "name": "Popote reutilizable",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-recipiente-para-alimentos",
+      "name": "Recipiente para alimentos",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bolsa-reutilizable-de-compras",
+      "name": "Bolsa reutilizable de compras",
+      "category": "Papel, envolturas y desechables",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cuchara-de-cocina",
+      "name": "Cuchara de cocina",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-espatula",
+      "name": "Espátula",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cucharon",
+      "name": "Cucharón",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pinza",
+      "name": "Pinza",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-batidor",
+      "name": "Batidor",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pelador",
+      "name": "Pelador",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-rallador",
+      "name": "Rallador",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-colador",
+      "name": "Colador",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-abrelatas",
+      "name": "Abrelatas",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sacacorchos",
+      "name": "Sacacorchos",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cuchillo",
+      "name": "Cuchillo",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tabla-para-picar",
+      "name": "Tabla para picar",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-taza-medidora",
+      "name": "Taza medidora",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cuchara-medidora",
+      "name": "Cuchara medidora",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-termometro-de-cocina",
+      "name": "Termómetro de cocina",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-embudo",
+      "name": "Embudo",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-brocha-de-cocina",
+      "name": "Brocha de cocina",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-rodillo",
+      "name": "Rodillo",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-molde",
+      "name": "Molde",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sarten",
+      "name": "Sartén",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-olla",
+      "name": "Olla",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-comal",
+      "name": "Comal",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-charola",
+      "name": "Charola",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tapa",
+      "name": "Tapa",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-recipiente-hermetico",
+      "name": "Recipiente hermético",
+      "category": "Utensilios de cocina",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-foco-led",
+      "name": "Foco LED",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pila-aa",
+      "name": "Pila AA",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pila-aaa",
+      "name": "Pila AAA",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pila-de-boton",
+      "name": "Pila de botón",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cerillo",
+      "name": "Cerillo",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-encendedor",
+      "name": "Encendedor",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vela",
+      "name": "Vela",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-extension-electrica",
+      "name": "Extensión eléctrica",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cinta-adhesiva",
+      "name": "Cinta adhesiva",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cinta-aislante",
+      "name": "Cinta aislante",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pegamento",
+      "name": "Pegamento",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-gancho-adhesivo",
+      "name": "Gancho adhesivo",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bolsa-al-vacio",
+      "name": "Bolsa al vacío",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-filtro-de-agua",
+      "name": "Filtro de agua",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cartucho-de-filtro",
+      "name": "Cartucho de filtro",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-carbon-para-asador",
+      "name": "Carbón para asador",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pastilla-de-encendido",
+      "name": "Pastilla de encendido",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-repelente-de-insectos",
+      "name": "Repelente de insectos",
+      "category": "Hogar y mantenimiento",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-croqueta-para-perro",
+      "name": "Croqueta para perro",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-croqueta-para-gato",
+      "name": "Croqueta para gato",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-alimento-humedo-para-perro",
+      "name": "Alimento húmedo para perro",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-alimento-humedo-para-gato",
+      "name": "Alimento húmedo para gato",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-premio-para-perro",
+      "name": "Premio para perro",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-premio-para-gato",
+      "name": "Premio para gato",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-arena-para-gato",
+      "name": "Arena para gato",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bolsa-para-desechos",
+      "name": "Bolsa para desechos",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-shampoo-para-mascota",
+      "name": "Shampoo para mascota",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tapete-entrenador",
+      "name": "Tapete entrenador",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-juguete-para-mascota",
+      "name": "Juguete para mascota",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-alimento-para-ave",
+      "name": "Alimento para ave",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-alimento-para-pez",
+      "name": "Alimento para pez",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-heno-para-conejo",
+      "name": "Heno para conejo",
+      "category": "Mascotas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-calcetin",
+      "name": "Calcetín",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-ropa-interior",
+      "name": "Ropa interior",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-camiseta",
+      "name": "Camiseta",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pijama",
+      "name": "Pijama",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-leggings",
+      "name": "Leggings",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-short",
+      "name": "Short",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pantalon",
+      "name": "Pantalón",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-playera",
+      "name": "Playera",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-toalla-de-bano",
+      "name": "Toalla de baño",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-toalla-de-manos",
+      "name": "Toalla de manos",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-mantel",
+      "name": "Mantel",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sabana",
+      "name": "Sábana",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-funda-de-almohada",
+      "name": "Funda de almohada",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cobija",
+      "name": "Cobija",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tapete-de-bano",
+      "name": "Tapete de baño",
+      "category": "Ropa y textiles",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lapiz",
+      "name": "Lápiz",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pluma",
+      "name": "Pluma",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-borrador",
+      "name": "Borrador",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sacapuntas",
+      "name": "Sacapuntas",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-marcador",
+      "name": "Marcador",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-resaltador",
+      "name": "Resaltador",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cuaderno",
+      "name": "Cuaderno",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-hoja-blanca",
+      "name": "Hoja blanca",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cartulina",
+      "name": "Cartulina",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pegamento-escolar",
+      "name": "Pegamento escolar",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tijera",
+      "name": "Tijera",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cinta-transparente",
+      "name": "Cinta transparente",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-carpeta",
+      "name": "Carpeta",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sobre",
+      "name": "Sobre",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-etiqueta",
+      "name": "Etiqueta",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-crayon",
+      "name": "Crayón",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-lapiz-de-color",
+      "name": "Lápiz de color",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-plastilina",
+      "name": "Plastilina",
+      "category": "Papelería y escolares",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-curita",
+      "name": "Curita",
+      "category": "Salud y botiquín",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-gasa",
+      "name": "Gasa",
+      "category": "Salud y botiquín",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-venda",
+      "name": "Venda",
+      "category": "Salud y botiquín",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cinta-medica",
+      "name": "Cinta médica",
+      "category": "Salud y botiquín",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-termometro",
+      "name": "Termómetro",
+      "category": "Salud y botiquín",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-cubrebocas",
+      "name": "Cubrebocas",
+      "category": "Salud y botiquín",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-gel-antibacterial",
+      "name": "Gel antibacterial",
+      "category": "Salud y botiquín",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-alcohol-antiseptico",
+      "name": "Alcohol antiséptico",
+      "category": "Salud y botiquín",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-suero-oral",
+      "name": "Suero oral",
+      "category": "Salud y botiquín",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bolsa-de-frio-calor",
+      "name": "Bolsa de frío/calor",
+      "category": "Salud y botiquín",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pan-sin-gluten",
+      "name": "Pan sin gluten",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pasta-sin-gluten",
+      "name": "Pasta sin gluten",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-harina-sin-gluten",
+      "name": "Harina sin gluten",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tofu",
+      "name": "Tofu",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tempeh",
+      "name": "Tempeh",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-seitan",
+      "name": "Seitán",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-levadura-nutricional",
+      "name": "Levadura nutricional",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-miso",
+      "name": "Miso",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-alga-nori",
+      "name": "Alga nori",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tahini",
+      "name": "Tahini",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-couscous",
+      "name": "Couscous",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bulgur",
+      "name": "Bulgur",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tortilla-para-wrap",
+      "name": "Tortilla para wrap",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-crema-de-cacahuate",
+      "name": "Crema de cacahuate",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-crema-de-almendra",
+      "name": "Crema de almendra",
+      "category": "Alimentación especial e internacional",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vela-de-cumpleanos",
+      "name": "Vela de cumpleaños",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-globo",
+      "name": "Globo",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-decoracion-de-fiesta",
+      "name": "Decoración de fiesta",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-bolsa-de-regalo",
+      "name": "Bolsa de regalo",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-papel-de-regalo",
+      "name": "Papel de regalo",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-liston",
+      "name": "Listón",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pinata",
+      "name": "Piñata",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-plato-para-fiesta",
+      "name": "Plato para fiesta",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-vaso-para-fiesta",
+      "name": "Vaso para fiesta",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-flor",
+      "name": "Flor",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-tierra-para-maceta",
+      "name": "Tierra para maceta",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-fertilizante-para-plantas",
+      "name": "Fertilizante para plantas",
+      "category": "Celebraciones y misceláneos",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-chiles",
+      "name": "Chiles",
+      "category": "Chiles y hierbas frescas",
+      "aliases": [
+        "chile"
+      ],
+      "unit": "piece"
+    },
+    {
+      "id": "p-pan",
+      "name": "Pan",
+      "category": "Panadería y tortillas",
+      "aliases": [],
+      "unit": "piece"
+    },
+    {
+      "id": "p-sal-y-pimienta",
+      "name": "Sal y pimienta",
+      "category": "Sal, especias y condimentos secos",
+      "aliases": [],
+      "unit": "piece"
+    }
+  ]
+}

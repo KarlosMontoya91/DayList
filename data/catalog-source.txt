@@ -1,0 +1,94 @@
+20.1 Frutas
+Manzana, pera, plátano, naranja, mandarina, limón, lima, toronja, piña, papaya, mango, sandía, melón, uva, fresa, frambuesa, zarzamora, mora azul, cereza, durazno, nectarina, ciruela, chabacano, kiwi, guayaba, granada, higo, tuna, pitaya, coco, tamarindo, tejocote, caqui, lichi, maracuyá y guanábana.
+20.2 Verduras y hortalizas
+Jitomate, tomate verde, cebolla blanca, cebolla morada, cebolla cambray, ajo, papa, camote, zanahoria, calabacita, calabaza de Castilla, pepino, chayote, jícama, betabel, rábano, nabo, berenjena, brócoli, coliflor, col blanca, col morada, lechuga, espinaca, acelga, kale, apio, poro, espárrago, ejote, chícharo, elote, nopal, alcachofa, aguacate, champiñón, seta y portobello.
+20.3 Chiles y hierbas frescas
+Chile jalapeño, serrano, poblano, habanero, de árbol fresco, güero, chilaca, morrón rojo, morrón verde, morrón amarillo, cilantro, perejil, epazote, hierbabuena, menta, albahaca, romero fresco, tomillo fresco y eneldo fresco.
+20.4 Res y otras carnes rojas
+Carne molida de res, bistec de res, milanesa de res, carne para guisar, carne para deshebrar, carne para asar, arrachera, rib eye, sirloin, diezmillo, aguja norteña, costilla de res, chambarete, falda, hígado de res, lengua de res, carne de cordero, chuleta de cordero y carne de cabrito.
+20.5 Cerdo
+Carne molida de cerdo, chuleta, lomo, pierna, espaldilla, costilla, panceta, tocino fresco, carne para carnitas, carne para pastor, chicharrón y manteca de cerdo.
+20.6 Pollo y pavo
+Pollo entero, pechuga con hueso, pechuga sin hueso, muslo, pierna, alas, fajitas de pollo, milanesa de pollo, pollo molido, menudencias de pollo, pavo entero, pechuga de pavo y pavo molido.
+20.7 Pescados y mariscos
+Filete de tilapia, salmón, atún fresco, pescado blanco, robalo, huachinango, trucha, sardina fresca, bacalao, camarón, pulpo, calamar, mejillón, almeja, ostión, jaiba, surimi y mezcla de mariscos.
+20.8 Carnes frías y embutidos
+Jamón de pierna, jamón de pavo, jamón de pollo, salchicha de cerdo, salchicha de pavo, salchicha de res, chorizo, longaniza, salami, pepperoni, mortadela, tocino, jamón serrano y roast beef.
+20.9 Lácteos, huevo y alternativas
+Leche entera, semidescremada, descremada, deslactosada, evaporada, condensada y en polvo; crema, media crema, crema para batir, mantequilla, yogur natural, yogur griego, yogur bebible, kéfir, jocoque, huevo de gallina, huevo de codorniz y claras de huevo.
+Bebida de soya, almendra, avena, coco y arroz; yogur vegetal y crema vegetal.
+20.10 Quesos
+Queso panela, fresco, Oaxaca, asadero, Chihuahua, manchego, mozzarella, cheddar, gouda, parmesano, cotija, queso crema, requesón, ricotta, cottage, queso de cabra y queso azul.
+20.11 Panadería y tortillas
+Bolillo, telera, baguette, pan de caja blanco, integral y multigrano; pan para hamburguesa, pan para hot dog, pan pita, bagel, croissant, concha, muffin, dona, pan tostado, tortilla de maíz, tortilla de harina, tortilla integral, tostada y totopo.
+20.12 Cereales, arroz, pasta y harinas
+Arroz blanco, integral, basmati y para sushi; avena, quinoa, amaranto, cebada, cereal de maíz, cereal integral, granola, espagueti, fideo, macarrón, codito, penne, fusilli, pasta para lasaña, pasta integral, fideo de arroz, harina de trigo, integral, de maíz, de arroz, de avena y de almendra.
+20.13 Leguminosas
+Frijol pinto, negro, bayo, peruano y rojo; lenteja, garbanzo, haba seca, alubia, soya, frijol refrito, frijol cocido y lenteja cocida.
+20.14 Semillas, nueces y fruta deshidratada
+Chía, linaza, ajonjolí, semilla de girasol, pepita de calabaza, semilla de amapola, cacahuate, almendra, nuez pecana, nuez de Castilla, nuez de la India, pistache, avellana, macadamia, piñón, pasa, arándano deshidratado, dátil, ciruela pasa, orejón de chabacano, coco rallado y mango deshidratado.
+20.15 Aceites, vinagres y grasas
+Aceite de oliva, canola, girasol, maíz, aguacate, coco y ajonjolí; vinagre blanco, de manzana, balsámico, de vino y de arroz; margarina, manteca vegetal y aceite en aerosol.
+20.16 Sal, especias y condimentos secos
+Sal de mesa, sal de grano, pimienta negra, blanca y rosa; comino, orégano, canela en rama, canela molida, clavo, laurel, tomillo seco, romero seco, albahaca seca, paprika, pimentón ahumado, cúrcuma, curry, jengibre molido, nuez moscada, anís estrella, cardamomo, azafrán, ajo en polvo, cebolla en polvo, chile piquín, hojuelas de chile, sazonador para pollo, sazonador para carne y consomé en polvo.
+20.17 Chiles secos, salsas y aderezos
+Chile ancho, guajillo, pasilla, morita, cascabel, chipotle y chile de árbol seco; salsa verde, salsa roja, salsa picante, salsa de tomate, puré de tomate, cátsup, mostaza, mayonesa, salsa de soya, salsa inglesa, salsa barbecue, salsa teriyaki, salsa de ostión, pesto, mole, adobo, aderezo ranch, César, italiano y vinagreta.
+20.18 Conservas y enlatados
+Atún en lata, sardina en lata, salmón en lata, elote en lata, chícharo en lata, verdura mixta, champiñón en conserva, jalapeño en escabeche, chipotle en adobo, frijol en lata, garbanzo en conserva, aceituna, alcaparra, pepinillo, palmito, piña en almíbar, durazno en almíbar y fruta en almíbar.
+20.19 Repostería y endulzantes
+Azúcar blanca, mascabado y glass; piloncillo, miel, miel de agave, jarabe de maple, stevia, edulcorante, cocoa, chocolate para hornear, chispa de chocolate, vainilla, polvo para hornear, bicarbonato, levadura, fécula de maíz, grenetina, gelatina en polvo, fondant, colorante alimentario, granillo y decoración comestible.
+20.20 Café, té e infusiones
+Café molido, café en grano, café soluble, café descafeinado, cápsula de café, té negro, verde, blanco y chai; manzanilla, jamaica, hierbabuena, tila, infusión de jengibre, matcha, chocolate en polvo y crema para café.
+20.21 Bebidas
+Agua natural, mineral y saborizada; refresco, jugo de naranja, jugo de manzana, jugo de uva, néctar, agua de coco, bebida isotónica, bebida energética, cerveza, cerveza sin alcohol, vino tinto, vino blanco, vino rosado, sidra y hielo.
+20.22 Botanas y golosinas
+Papa frita, fritura de maíz, palomita para microondas, maíz palomero, pretzel, galleta salada, cacahuate enchilado, mezcla de frutos secos, barra de cereal, barra de proteína, galleta dulce, chocolate, gomita, caramelo, paleta, chicle, malvavisco, mazapán, dulce de leche, dulce de tamarindo y oblea.
+20.23 Congelados
+Verdura congelada, fruta congelada, papa congelada, pizza congelada, nugget, hamburguesa congelada, pescado congelado, camarón congelado, helado, paleta helada, masa congelada, waffle congelado y comida preparada congelada.
+20.24 Comida preparada e instantánea
+Pollo rostizado, ensalada preparada, sushi preparado, tamal, empanada, burrito, lasaña preparada, sopa instantánea, puré de papa instantáneo, arroz preparado, frijol preparado, hummus y guacamole preparado.
+20.25 Bebé
+Pañal, pañal entrenador, toallita húmeda, crema para rozaduras, jabón para bebé, shampoo para bebé, loción para bebé, fórmula infantil, papilla, cereal infantil, biberón, chupón, tetina, bolsa para leche materna y detergente para ropa de bebé.
+No incluyas recomendaciones médicas ni de alimentación infantil.
+20.26 Higiene personal
+Jabón corporal, gel de baño, shampoo, acondicionador, desodorante, crema corporal, crema para manos, protector solar, bálsamo labial, rastrillo, repuesto de rastrillo, espuma para afeitar, papel higiénico, pañuelo desechable, algodón, hisopo y toallita húmeda.
+20.27 Higiene bucal, menstrual y sexual
+Pasta dental, cepillo dental, hilo dental, enjuague bucal, cepillo interdental, limpiador de lengua, toalla sanitaria, tampón, protector diario, copa menstrual, preservativo y lubricante personal.
+20.28 Limpieza del hogar
+Detergente para ropa, suavizante, quitamanchas, jabón de lavandería, blanqueador, lavatrastes, detergente para lavavajillas, limpiador multiusos, desinfectante de superficies, limpiador de pisos, limpiavidrios, limpiador de baño, desengrasante, limpiador para madera, limpiador de acero, aromatizante, bicarbonato de limpieza y desinfectante para frutas y verduras.
+Mantén este último separado de los desinfectantes de superficies. No generes instrucciones para mezclar químicos.
+20.29 Accesorios de limpieza
+Esponja, fibra, cepillo para trastes, cepillo para baño, guante de limpieza, paño de microfibra, trapo de cocina, escoba, recogedor, trapeador, repuesto de trapeador, cubeta, jalador, bolsa de basura, bolsa compostable, rodillo quitapelusa y filtro de aspiradora.
+20.30 Papel, envolturas y desechables
+Servilleta, toalla de papel, papel aluminio, película plástica, papel encerado, papel para hornear, bolsa hermética, bolsa para congelar, plato desechable, vaso desechable, cubierto desechable, popote reutilizable, recipiente para alimentos y bolsa reutilizable de compras.
+20.31 Utensilios de cocina
+Cuchara de cocina, espátula, cucharón, pinza, batidor, pelador, rallador, colador, abrelatas, sacacorchos, cuchillo, tabla para picar, taza medidora, cuchara medidora, termómetro de cocina, embudo, brocha de cocina, rodillo, molde, sartén, olla, comal, charola, tapa y recipiente hermético.
+20.32 Hogar y mantenimiento
+Foco LED, pila AA, pila AAA, pila de botón, cerillo, encendedor, vela, extensión eléctrica, cinta adhesiva, cinta aislante, pegamento, gancho adhesivo, bolsa al vacío, filtro de agua, cartucho de filtro, carbón para asador, pastilla de encendido y repelente de insectos.
+20.33 Mascotas
+Croqueta para perro, croqueta para gato, alimento húmedo para perro, alimento húmedo para gato, premio para perro, premio para gato, arena para gato, bolsa para desechos, shampoo para mascota, tapete entrenador, juguete para mascota, alimento para ave, alimento para pez y heno para conejo.
+20.34 Ropa y textiles
+Calcetín, ropa interior, camiseta, pijama, leggings, short, pantalón, playera, toalla de baño, toalla de manos, trapo de cocina, mantel, sábana, funda de almohada, cobija y tapete de baño.
+Los artículos de ropa admiten talla, color y destinatario como detalles.
+20.35 Papelería y escolares
+Lápiz, pluma, borrador, sacapuntas, marcador, resaltador, cuaderno, hoja blanca, cartulina, pegamento escolar, tijera, cinta transparente, carpeta, sobre, etiqueta, crayón, lápiz de color y plastilina.
+20.36 Salud y botiquín
+Curita, gasa, venda, cinta médica, termómetro, cubrebocas, gel antibacterial, alcohol antiséptico, suero oral y bolsa de frío/calor.
+Permite registrar otros artículos como productos propios, sin recomendar tratamientos, dosis o sustituciones.
+20.37 Alimentación especial e internacional
+Pan sin gluten, pasta sin gluten, harina sin gluten, tofu, tempeh, seitán, levadura nutricional, miso, alga nori, tahini, couscous, bulgur, tortilla para wrap, crema de cacahuate y crema de almendra.
+Las etiquetas “sin gluten”, “vegano” o “sin azúcar” deben depender de información validada del producto, no solamente de su nombre.
+20.38 Celebraciones y misceláneos
+Vela de cumpleaños, globo, decoración de fiesta, bolsa de regalo, papel de regalo, listón, piñata, plato para fiesta, vaso para fiesta, flor, tierra para maceta y fertilizante para plantas.
+Reglas del seed
+- Cada nombre debe convertirse en registro individual.
+- Evita duplicar productos entre categorías.
+- Conserva atributos o etiquetas para clasificaciones secundarias.
+- Agrega aliases regionales controlados.
+- Genera slugs únicos.
+- Asigna una unidad sugerida.
+- Asigna recurso visual exacto, relacionado o fallback.
+- Valida referencias.
+- El seed debe ser idempotente.
+- Genera un reporte con cantidades reales por categoría.
+- Permite ampliar el catálogo mediante administración y productos propios.

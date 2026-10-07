@@ -1,0 +1,5 @@
+const DB='super-hogar-local',STORE='workspace';
+let dbPromise;
+function db(){return dbPromise??=new Promise((resolve,reject)=>{const request=indexedDB.open(DB,1);request.onupgradeneeded=()=>request.result.createObjectStore(STORE);request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);});}
+export async function load(){const d=await db();return new Promise((resolve,reject)=>{const request=d.transaction(STORE).objectStore(STORE).get('state');request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error);});}
+export async function write(state,expectedRevision){const d=await db();return new Promise((resolve,reject)=>{const tx=d.transaction(STORE,'readwrite'),store=tx.objectStore(STORE),request=store.get('state');let conflict=false;request.onsuccess=()=>{if(request.result&&request.result.revision!==expectedRevision){conflict=true;tx.abort();return;}store.put(state,'state');};tx.oncomplete=()=>resolve();tx.onabort=()=>reject(Error(conflict?'CONFLICT':'STORAGE_ERROR'));tx.onerror=()=>reject(tx.error);});}

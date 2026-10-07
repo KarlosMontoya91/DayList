@@ -1,0 +1,5 @@
+const CACHE='super-hogar-purchases-v1';
+const ASSETS=['/src/purchases.js','/','/index.html','/style.css','/enhanced.css','/iconify.css','/src/icon-semantics.js','/src/icon-cache.js','/src/icon-service.js','/src/icon-picker.js','/src/main.js','/src/ui.js','/src/catalog.js','/src/parser.js','/src/storage.js','/src/extras.js','/src/firebase.js','/data/catalog.json','/manifest.webmanifest','/icon.svg'];
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS))));
+self.addEventListener('activate',event=>event.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('super-hogar-')&&k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()])));
+self.addEventListener('fetch',event=>{const url=new URL(event.request.url);if(event.request.method!=='GET'||url.origin!==self.location.origin||!ASSETS.includes(url.pathname))return;event.respondWith(fetch(event.request).then(response=>{if(response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(event.request,copy));}return response;}).catch(()=>caches.match(event.request)));});

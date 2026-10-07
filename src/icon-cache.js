@@ -1,0 +1,4 @@
+let connection;
+function db(){return connection??=new Promise((resolve,reject)=>{const r=indexedDB.open('daylist-iconify',1);r.onupgradeneeded=()=>r.result.createObjectStore('cache');r.onsuccess=()=>resolve(r.result);r.onerror=()=>{connection=null;reject(r.error);};});}
+export async function cached(key){try{const d=await db();return await new Promise((resolve,reject)=>{const r=d.transaction('cache').objectStore('cache').get(key);r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}catch{return null;}}
+export async function cache(key,value){const d=await db();return new Promise((resolve,reject)=>{const tx=d.transaction('cache','readwrite');tx.objectStore('cache').put({...value,cachedAt:Date.now()},key);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error);});}
