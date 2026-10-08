@@ -44,9 +44,24 @@ html[data-theme=dark] .category-tab-btn.active{color:#112310}
 /* Ajuste del selector de listas activo */
 .list-title select{font-size:24px;font-weight:700;color:var(--ink);cursor:pointer;border-bottom:2px solid var(--green)!important;border-radius:4px;padding:2px 8px}
 
-/* Botón de Google Sign In */
-.btn-google{width:100%;justify-content:center;font-size:14px;font-weight:600;padding:12px;margin-bottom:14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:0 4px 12px #00000008}
-.btn-google:hover{background:var(--green-light);border-color:var(--green)}
-.divider-or{text-align:center;font-size:11px;color:var(--muted);margin:14px 0}
+/* Encabezado superior y botón de sesión */
+.header-actions{display:flex;align-items:center;gap:12px}
+.auth-header-btn{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:20px;border:1px solid var(--line);background:var(--glass);color:var(--ink);font-size:12px;font-weight:600;cursor:pointer;transition:all .18s ease}
+.auth-header-btn:hover{background:var(--green-light);border-color:var(--green)}
+.header-avatar{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--green-light);color:var(--green);font-size:12px;font-weight:700;overflow:hidden;flex-shrink:0}
+.user-header-img,.user-sidebar-img,.user-card-avatar{width:100%;height:100%;object-fit:cover;border-radius:50%}
+
+/* Modal exclusivo de inicio de sesión de Google */
+.google-auth-modal{display:flex;flex-direction:column;align-items:center;text-align:center;padding:12px 6px}
+.daylist-modal-logo{margin-bottom:12px;filter:drop-shadow(0 6px 12px #12705a25)}
+.auth-modal-title{font-size:22px;font-weight:700;margin-bottom:6px;color:var(--ink)}
+.btn-google-official{display:inline-flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:320px;padding:12px 20px;margin-top:20px;border-radius:24px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:14px;font-weight:600;cursor:pointer;box-shadow:0 4px 14px #00000010;transition:all .18s ease}
+.btn-google-official:hover{background:var(--green-light);border-color:var(--green);transform:translateY(-1px);box-shadow:0 6px 18px #00000015}
+.auth-user-card{display:flex;align-items:center;gap:14px;background:var(--input);border:1px solid var(--line);padding:14px 18px;border-radius:18px;width:100%;max-width:340px;margin:20px 0;text-align:left}
+.user-card-avatar{width:46px;height:46px;flex-shrink:0}
+.user-card-initials{width:46px;height:46px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-size:18px;font-weight:700;flex-shrink:0}
+.user-card-info{display:flex;flex-direction:column;min-width:0}
+.user-card-info strong{font-size:14px;color:var(--ink)}
+.user-card-info small{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 

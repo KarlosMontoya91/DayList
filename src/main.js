@@ -151,6 +151,7 @@ function setup(){
   $('#focus-add').onclick=()=>{$('#item-name').scrollIntoView({behavior:'smooth',block:'center'});$('#item-name').focus({preventScroll:true});};
   $('#clear-done').onclick=()=>confirmAction('Retirar comprados','Se moverán a Recientes para que puedas reutilizarlos.',()=>commit('Comprados guardados en Recientes',s=>{const l=findList(s);l.recent=[...l.items.filter(i=>i.done),...l.recent].slice(0,150);l.items=l.items.filter(i=>!i.done);},true));
   $('#theme-toggle').onclick=async()=>{await commit('',s=>s.settings.theme=document.documentElement.dataset.theme==='dark'?'light':'dark');applyTheme();};
+  $('#btn-header-auth').onclick=()=>extras.authForm();
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyTheme);
   window.addEventListener('online',render);
   window.addEventListener('offline',render);
@@ -158,7 +159,23 @@ function setup(){
 }
 
 let extras;
-try{state=await load();if(!state){let legacy;try{legacy=JSON.parse(localStorage.getItem('verde-lists'));}catch{}state=migrate(legacy);await write(state,undefined);}setup();$('.list-footer').firstElementChild.replaceWith($('#sync-status'));extras=mountExtras({state:()=>state,current,commit,toast,section,batchReview,confirmAction,applyTheme});applyTheme();switchView('lists');if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>toast('La instalación sin conexión no está disponible en este navegador.'));}catch(e){console.error(e);document.body.replaceChildren(empty('No se pudo abrir el almacenamiento local. Permite el almacenamiento del sitio y vuelve a cargar. Tus datos anteriores no se borraron.'));}
+try{
+  state=await load();
+  if(!state){let legacy;try{legacy=JSON.parse(localStorage.getItem('verde-lists'));}catch{}state=migrate(legacy);await write(state,undefined);}
+  setup();
+  $('.list-footer').firstElementChild.replaceWith($('#sync-status'));
+  extras=mountExtras({state:()=>state,current,commit,toast,section,batchReview,confirmAction,applyTheme});
+  applyTheme();
+  switchView('lists');
+  
+  import('./firebase.js').then(f => f.firebase()).then(async f => {
+    await f.auth.authStateReady();
+    if(f.auth.currentUser) extras.updateHeaderUser(f.auth.currentUser);
+    f.onAuthStateChanged(f.auth, user => extras.updateHeaderUser(user));
+  }).catch(()=>{});
+
+  if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>toast('La instalación sin conexión no está disponible en este navegador.'));
+}catch(e){console.error(e);document.body.replaceChildren(empty('No se pudo abrir el almacenamiento local. Permite el almacenamiento del sitio y vuelve a cargar. Tus datos anteriores no se borraron.'));}
 
 function categoryIconEditor(getName){const panel=el('details','category-icon-settings');panel.append(el('summary','','Elegir icono de categoría'));const host=el('div');panel.append(host);panel.addEventListener('toggle',()=>{if(!panel.open){host.replaceChildren();return;}const name=getName();host.replaceChildren();if(!name){host.append(el('p','section-description','Selecciona una categoría para elegir su icono.'));return;}host.append(el('p','section-description',name));const picker=createIconPicker({name,category:name,value:state.categoryIcons?.[name]?.icon_key,onConfirm:key=>{save.disabled=false;selected=key;}});let selected=null;const save=button('Guardar icono de categoría',async()=>{if(!selected||picker.hasPending()){toast('Selecciona y confirma el icono.');return;}if(await commit('Icono de categoría guardado',s=>{s.categoryIcons??={};s.categoryIcons[name]={icon_key:selected};})){panel.open=false;}},'button primary');save.disabled=true;host.append(picker,save);});return panel;}
 
