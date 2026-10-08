@@ -1,7 +1,83 @@
 let instance;
-export async function firebase(){if(instance)return instance;const config=await fetch('/api/config').then(r=>r.json());if(!config.firebase?.apiKey)throw Error('FIREBASE_NOT_CONFIGURED');const [{initializeApp},authModule]=await Promise.all([import('https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js'),import('https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js')]);const auth=authModule.getAuth(initializeApp(config.firebase));auth.languageCode='es';instance={auth,...authModule};return instance;}
-export async function signIn(email,password){const f=await firebase();return f.signInWithEmailAndPassword(f.auth,email,password);}
-export async function register(email,password,name){const f=await firebase();const {user}=await f.createUserWithEmailAndPassword(f.auth,email,password);await f.updateProfile(user,{displayName:name});await f.sendEmailVerification(user);return user;}
-export async function recover(email){const f=await firebase();await f.sendPasswordResetEmail(f.auth,email);}
-export async function signOut(){const f=await firebase();await f.signOut(f.auth);}
-export const authMessage=e=>({'FIREBASE_NOT_CONFIGURED':'Las cuentas requieren conectar el proyecto Firebase. Puedes seguir usando tus listas locales.','auth/invalid-credential':'El correo o la contraseña no son correctos.','auth/email-already-in-use':'Este correo ya tiene una cuenta. Inicia sesión o recupera el acceso.','auth/weak-password':'Utiliza una contraseña más segura.','auth/too-many-requests':'Demasiados intentos. Intenta de nuevo más tarde.','auth/network-request-failed':'No se pudo conectar. Revisa tu conexión.'}[e.code||e.message]||'No se pudo completar la operación. Conservamos tus datos; vuelve a intentarlo.');
+export async function firebase(){
+  if(instance) return instance;
+  let config;
+  try {
+    config = await fetch('/api/config').then(r=>r.json());
+  } catch {
+    config = null;
+  }
+  if(!config?.firebase?.apiKey) throw Error('FIREBASE_NOT_CONFIGURED');
+  const [{initializeApp}, authModule, firestoreModule] = await Promise.all([
+    import('https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js'),
+    import('https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js'),
+    import('https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js')
+  ]);
+  const app = initializeApp(config.firebase);
+  const auth = authModule.getAuth(app);
+  const db = firestoreModule.getFirestore(app);
+  auth.languageCode = 'es';
+  instance = { app, auth, db, ...authModule, ...firestoreModule };
+  return instance;
+}
+
+export async function signIn(email,password){
+  const f = await firebase();
+  return f.signInWithEmailAndPassword(f.auth,email,password);
+}
+
+export async function register(email,password,name){
+  const f = await firebase();
+  const {user} = await f.createUserWithEmailAndPassword(f.auth,email,password);
+  await f.updateProfile(user,{displayName:name});
+  await f.sendEmailVerification(user);
+  return user;
+}
+
+export async function recover(email){
+  const f = await firebase();
+  await f.sendPasswordResetEmail(f.auth,email);
+}
+
+export async function signOut(){
+  const f = await firebase();
+  await f.signOut(f.auth);
+}
+
+export async function saveSharedList(list, members = []){
+  const f = await firebase();
+  if(!f.auth.currentUser) throw Error('AUTH_REQUIRED');
+  const listRef = f.doc(f.db, 'lists', list.id);
+  const payload = {
+    ...list,
+    ownerId: f.auth.currentUser.uid,
+    ownerEmail: f.auth.currentUser.email,
+    members: Array.from(new Set([...members, f.auth.currentUser.email])),
+    updatedAt: new Date().toISOString()
+  };
+  await f.setDoc(listRef, payload, { merge: true });
+  return payload;
+}
+
+export async function loadUserSharedLists(){
+  const f = await firebase();
+  if(!f.auth.currentUser) return [];
+  const q = f.query(
+    f.collection(f.db, 'lists'),
+    f.where('members', 'array-contains', f.auth.currentUser.email)
+  );
+  const snapshot = await f.getDocs(q);
+  const lists = [];
+  snapshot.forEach(doc => lists.push(doc.data()));
+  return lists;
+}
+
+export const authMessage = e => ({
+  'FIREBASE_NOT_CONFIGURED': 'Para guardar en la nube y compartir con otras personas, es necesario conectar tu proyecto de Firebase en la configuración.',
+  'AUTH_REQUIRED': 'Debes iniciar sesión con tu cuenta para compartir y guardar listas en la nube.',
+  'auth/invalid-credential': 'El correo o la contraseña no coinciden. Por favor revisa tus datos.',
+  'auth/email-already-in-use': 'Este correo ya tiene una cuenta registrada. Inicia sesión o restablece tu contraseña.',
+  'auth/weak-password': 'La contraseña debe tener al menos 6 caracteres.',
+  'auth/too-many-requests': 'Muchos intentos fallidos. Espera un momento antes de volver a intentarlo.',
+  'auth/network-request-failed': 'Sin conexión a internet. Inténtalo de nuevo cuando estés en línea.'
+}[e.code || e.message] || 'Ocurrió un inconveniente al procesar tu solicitud. Tus listas locales se conservan intactas.');

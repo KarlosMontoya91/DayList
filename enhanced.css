@@ -24,3 +24,24 @@ html[data-theme=dark] .list-panel,html[data-theme=dark] .summary-card,html[data-
 /* Registro de compras y comparación */
 .spending-summary{border-top:1px solid var(--line);margin-top:20px;padding-top:20px;display:grid;gap:10px}.spending-summary>strong{font-size:32px;color:var(--green)}.spending-summary p,.purchase-previous p{font-size:13px;line-height:1.6}.purchase-previous,.purchase-total{padding:18px;border-radius:18px;background:var(--bg);border:1px solid var(--line);margin:16px 0}.purchase-total{font-size:20px;font-weight:700}.purchase-form>.button{margin:8px 8px 0 0}.compare-empty{padding:36px;text-align:center;max-width:720px;margin:0 auto 28px}.compare-empty p{line-height:1.8;margin:18px 0}.compare-symbol{font-size:44px;color:var(--green)}.compare-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:22px}.compare-card{padding:26px;border:1px solid var(--line);border-radius:24px;background:var(--surface);min-width:0;overflow-wrap:anywhere}.compare-card p{line-height:1.6}.compare-card h4{margin-top:24px}.compare-heading{display:flex;gap:14px;align-items:center}.compare-heading h3{margin:0}.compare-price{display:block;font-size:30px;margin-top:20px;color:var(--green)}.store-price{display:grid;grid-template-columns:1fr auto;gap:6px 14px;padding:14px 0;border-bottom:1px solid var(--line)}.store-price small{grid-column:1/-1;opacity:.75}.purchase-history{margin-top:20px}.purchase-history summary{cursor:pointer}.compare-demo{max-width:480px;margin:auto;border-style:dashed}.compare-demo>small{letter-spacing:.08em;font-size:10px}.price-change{font-weight:600}.compare-card .section-description{font-size:12px}.purchase-form input{min-width:0}
 
+/* Pestañas de catálogo y scroll infinito */
+.category-tabs-scroll{display:flex;gap:8px;overflow-x:auto;padding:8px 0;scrollbar-width:none;-webkit-overflow-scrolling:touch;width:100%}
+.category-tabs-scroll::-webkit-scrollbar{display:none}
+.category-tab-btn{white-space:nowrap;padding:8px 16px;border-radius:20px;border:1px solid var(--line);background:var(--glass);color:var(--ink);font-size:13px;font-weight:500;cursor:pointer;transition:all .18s ease}
+.category-tab-btn:hover{background:var(--green-light);border-color:var(--green)}
+.category-tab-btn.active{background:linear-gradient(135deg,var(--primary-start),var(--primary-end));color:#fff;border-color:transparent;box-shadow:0 4px 12px #15836525}
+html[data-theme=dark] .category-tab-btn.active{color:#112310}
+.catalog-loading-state{text-align:center;padding:24px 0;width:100%}
+
+/* Botón prominente de dictado por voz y modales de estado */
+.btn-voice-prominent{display:inline-flex;align-items:center;gap:8px;font-weight:650;border-color:var(--green);color:var(--green);background:var(--green-light)}
+.btn-voice-prominent:hover{background:var(--green);color:#fff}
+.pulse{animation:pulseAnim 1.2s infinite ease-in-out}
+@keyframes pulseAnim{0%{transform:scale(1)}50%{transform:scale(1.04);box-shadow:0 0 12px var(--green)}100%{transform:scale(1)}}
+.voice-status-box{display:flex;align-items:center;gap:14px;background:var(--input);padding:14px;border-radius:14px;border:1px solid var(--line);margin-bottom:12px}
+.voice-status-icon{font-size:28px;flex-shrink:0}
+
+/* Ajuste del selector de listas activo */
+.list-title select{font-size:24px;font-weight:700;color:var(--ink);cursor:pointer;border-bottom:2px solid var(--green)!important;border-radius:4px;padding:2px 8px}
+
+

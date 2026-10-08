@@ -35,17 +35,128 @@ function renderSuggestions(){const box=$('#suggestions');box.replaceChildren();c
 function search(){const q=$('#item-name').value.trim(),box=$('#search-results');box.replaceChildren();box.hidden=!q;if(!q)return;const draft=parseItem(q,state.customProducts),results=searchProducts(draft.name,state.customProducts).filter(p=>!$('#item-category').value||p.category===$('#item-category').value).slice(0,8);box.append(el('p','search-caption',results.length?'Elige el producto que buscas':'No encontramos ese producto. Puedes crearlo.'));for(const p of results){const b=button('',()=>addProduct(p,{...draft,name:p.name,productId:p.id,category:p.category,emoji:p.emoji}),'search-result');b.append(iconNode(p.icon_key,p.emoji,'result-icon'),el('strong','',p.name),el('small','',p.category),el('span','','＋'));box.append(b);}box.append(button(`＋ Crear “${draft.name}”`,()=>openProduct(draft,'create'),'create-result'));}
 function switchView(next){view=next;$('#local-section').hidden=next!=='lists';$('#section-view').hidden=next==='lists';$('.hero').hidden=next!=='lists';document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===next));render();}
 function section(title,description){const box=$('#section-view');box.replaceChildren();box.append(el('h2','section-title',title),el('p','section-description',description));return box;}
-function renderCatalog(){const box=section('Un lugar para cada producto',`${catalog.length} productos del catálogo · ${state.customProducts.length} productos propios`),tools=el('div','catalog-tools'),query=input(state.catalogQuery||'','Buscar por nombre o sinónimo…'),cat=categorySelect(state.catalogCategory||'Sin categoría'),all=el('option','','Todas las categorías');all.value='';cat.prepend(all);cat.value=state.catalogCategory||'';query.setAttribute('aria-label','Buscar en catálogo');cat.setAttribute('aria-label','Filtrar catálogo por categoría');const own=input('','','checkbox');own.checked=!!state.catalogOwn;tools.append(query,cat,field('Solo mis productos',own),button('＋ Nuevo producto',()=>openProduct({},'create',false),'button primary'));const categoryEditor=categoryIconEditor(()=>cat.value);categoryEditor.classList.add('iconify-category-panel');tools.append(categoryEditor);box.append(tools);const grid=el('div','catalog-grid'),pagination=el('div','actions');box.append(grid,pagination);function draw(){state.catalogQuery=query.value;state.catalogCategory=cat.value;state.catalogOwn=own.checked;const results=searchProducts(query.value,state.customProducts).filter(p=>(!cat.value||p.category===cat.value)&&(!own.checked||p.id.startsWith('custom-')));grid.replaceChildren();pagination.replaceChildren();if(!results.length)grid.append(empty('No encontramos ese producto. Crea uno con su nombre, categoría e icono.'));for(const p of results.slice(searchPage*30,(searchPage+1)*30)){const tile=el('article','catalog-tile'),b=button('',()=>addProduct(p),'catalog-product');b.append(iconNode(p.icon_key,p.emoji,'catalog-icon'),el('strong','',p.name),el('small','',p.category));b.setAttribute('aria-label',`Agregar ${p.name}`);tile.append(b);if(p.id.startsWith('custom-'))tile.append(button('Editar producto',()=>openProduct(p,'catalog-edit',false),'text-button'));grid.append(tile);}const prev=button('← Anterior',()=>{searchPage--;draw();});prev.disabled=searchPage===0;const next=button('Siguiente →',()=>{searchPage++;draw();});next.disabled=(searchPage+1)*30>=results.length;pagination.append(prev,el('span','',`${results.length} resultados · Página ${searchPage+1}`),next);}for(const control of [query,cat,own])control.oninput=()=>{searchPage=0;draw();};draw();}
+let catalogPage = 1, activeCategoryTab = '';
+function renderCatalog(){
+  const box = section('Catálogo de productos', `${catalog.length} productos disponibles · ${state.customProducts.length} creados por ti`);
+  const tools = el('div', 'catalog-tools');
+  const query = input(state.catalogQuery || '', 'Buscar producto por nombre o sinónimo…');
+  query.setAttribute('aria-label', 'Buscar productos');
+
+  const tabsNav = el('nav', 'category-tabs-scroll');
+  const allTab = button('✨ Todos', () => { activeCategoryTab = ''; catalogPage = 1; draw(); }, 'category-tab-btn' + (activeCategoryTab===''?' active':''));
+  tabsNav.append(allTab);
+
+  for(const c of categories){
+    const icon = c.icon || '📦';
+    const btn = button(`${icon} ${c.name}`, () => { activeCategoryTab = c.name; catalogPage = 1; draw(); }, 'category-tab-btn' + (activeCategoryTab===c.name?' active':''));
+    tabsNav.append(btn);
+  }
+
+  tools.append(query, tabsNav);
+  box.append(tools);
+
+  const grid = el('div', 'catalog-grid');
+  const loadingState = el('div', 'catalog-loading-state');
+  box.append(grid, loadingState);
+
+  function getFilteredResults(){
+    return searchProducts(query.value, state.customProducts).filter(p => !activeCategoryTab || p.category === activeCategoryTab);
+  }
+
+  function draw(){
+    state.catalogQuery = query.value;
+    const results = getFilteredResults();
+    const visibleCount = activeCategoryTab === '' ? (catalogPage * 10) : results.length;
+    const itemsToShow = results.slice(0, visibleCount);
+
+    grid.replaceChildren();
+    loadingState.replaceChildren();
+
+    if(!results.length){
+      grid.append(empty('No se encontraron productos que coincidan con la búsqueda. Puedes crear un producto personalizado.'));
+      return;
+    }
+
+    for(const p of itemsToShow){
+      const tile = el('article', 'catalog-tile');
+      const b = button('', () => addProduct(p), 'catalog-product');
+      b.append(iconNode(p.icon_key, p.emoji || '📦', 'catalog-icon'), el('strong', '', p.name), el('small', '', p.category));
+      b.setAttribute('aria-label', `Agregar ${p.name}`);
+      tile.append(b);
+      if(p.id.startsWith('custom-')) tile.append(button('Editar', () => openProduct(p, 'catalog-edit', false), 'text-button'));
+      grid.append(tile);
+    }
+
+    if(activeCategoryTab === '' && visibleCount < results.length){
+      loadingState.append(el('p', 'section-description', `Mostrando ${visibleCount} de ${results.length} productos. Desplázate hacia abajo para ver más.`));
+    } else if(results.length > 0) {
+      loadingState.append(el('p', 'section-description', `Has llegado al final del catálogo (${results.length} productos).`));
+    }
+  }
+
+  query.oninput = () => { catalogPage = 1; draw(); };
+
+  window.onscroll = () => {
+    if(view !== 'catalog' || activeCategoryTab !== '') return;
+    if((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 400){
+      const total = getFilteredResults().length;
+      if(catalogPage * 10 < total){
+        catalogPage++;
+        draw();
+      }
+    }
+  };
+
+  draw();
+}
+
 function listMenu(){const {d,content}=dialog('Organizar lista');content.append(button('Renombrar',()=>createList('rename')),button('Duplicar lista',async()=>{if(await commit('Lista duplicada',s=>{const l=structuredClone(findList(s));l.id=uuid();l.name+=' (copia)';l.items=l.items.map(i=>({...i,id:uuid(),purchaseId:null}));l.activity=[];l.recent=[];s.lists.push(l);s.active=l.id;}))d.close();}),button('Archivar lista',()=>confirmAction('Archivar lista','Podrás restaurarla desde este menú.',()=>commit('Lista archivada',s=>{findList(s).archived=true;let active=s.lists.find(l=>!l.archived);if(!active){active={id:uuid(),name:'Mi lista',items:[],recent:[],activity:[],categoryOrder:[]};s.lists.push(active);}s.active=active.id;}))),button('Orden de categorías',()=>categoryOrder()),button('Guardar como plantilla',()=>saveTemplate()),button('Exportar lista',()=>download(current().name+'.json',current())),button('Eliminar lista',()=>confirmAction('Eliminar lista','Puedes deshacer la operación inmediatamente.',()=>commit('Lista eliminada',s=>{s.lists=s.lists.filter(l=>l.id!==s.active);let next=s.lists.find(l=>!l.archived);if(!next){next={id:uuid(),name:'Mi lista',items:[],recent:[],activity:[],categoryOrder:[]};s.lists.push(next);}s.active=next.id;},true)),'button destructive'));if(state.lists.some(l=>l.archived)){content.append(el('h3','','Archivadas'));for(const l of state.lists.filter(l=>l.archived))content.append(button(`Restaurar ${l.name}`,async()=>{if(await commit('Lista restaurada',s=>{findList(s,l.id).archived=false;s.active=l.id;}))d.close();}));}}
 function categoryOrder(){const {content}=dialog('Recorrido de la tienda');let order=[...new Set([...(current().categoryOrder||[]),...current().items.map(i=>i.category)])];const draw=()=>{content.replaceChildren(el('p','','Sube o baja las categorías según tu recorrido.'));order.forEach((c,i)=>{const row=el('div','order-row'),up=button('↑',async()=>{[order[i-1],order[i]]=[order[i],order[i-1]];await commit('',s=>findList(s).categoryOrder=order);draw();}),down=button('↓',async()=>{[order[i+1],order[i]]=[order[i],order[i+1]];await commit('',s=>findList(s).categoryOrder=order);draw();});up.disabled=i===0;up.setAttribute('aria-label',`Subir ${c}`);down.disabled=i===order.length-1;down.setAttribute('aria-label',`Bajar ${c}`);row.append(el('span','',c),up,down);content.append(row);});};draw();}
 function showActivity(){const {content}=dialog('Actividad de esta lista');content.append(el('p','section-description','Actividad local en este dispositivo.'));if(!current().activity.length)content.append(empty('Los próximos cambios aparecerán aquí.'));for(const event of current().activity){const row=el('article','activity-entry');row.append(el('strong','',event.text),el('small','',`${event.actor} · ${new Date(event.at).toLocaleString('es-MX',{timeZone:state.settings.timezone})}`));content.append(row);}const message=input('','Escribe una nota para esta lista');message.maxLength=300;content.append(field('Notas de la lista',message),button('Guardar nota',async()=>{if(!message.value.trim())return;await commit('Nota guardada',s=>activity(findList(s),message.value.trim()));showActivity();}));}
 function batchReview(items,title='Revisar productos'){const {d,content}=dialog(title);content.append(el('p','','Revisa antes de agregar. Los duplicados se conservan sin aumentar su cantidad.'));const target=select(Object.fromEntries(visibleLists().map(l=>[l.id,l.name])),state.active);content.append(field('Lista de destino',target));const rows=[];for(const item of items){const row=el('div','draft-row'),include=input('','','checkbox');include.checked=true;include.setAttribute('aria-label',`Incluir ${item.name}`);const name=input(item.name),qty=input(item.quantity,'Cantidad','number'),unit=select(units,item.unit||'piece'),category=categorySelect(item.category||'Sin categoría');qty.min='.001';qty.step='.001';name.setAttribute('aria-label','Nombre del producto');qty.setAttribute('aria-label','Cantidad');unit.setAttribute('aria-label','Unidad');category.setAttribute('aria-label','Categoría');row.append(include,el('span','',item.emoji||productIcon(item.name)),name,qty,unit,category);if(item.packageSize)row.append(el('small','',`${item.packageSize} ${units[item.packageUnit]} por presentación`));content.append(row);rows.push({item,include,name,qty,unit,category});}content.append(button('Agregar seleccionados',async()=>{const selected=rows.filter(r=>r.include.checked);if(!selected.length){toast('Selecciona al menos un producto.');return;}if(selected.some(r=>!r.name.value.trim()||!validQuantity(r.qty.value))){toast('Revisa nombres y cantidades.');return;}let duplicates=0;const ok=await commit('',s=>{const list=findList(s,target.value);for(const r of selected){const name=r.name.value.trim();let p=exactProduct(name,s.customProducts);if(!p){p={id:'custom-'+uuid(),name,emoji:productIcon(name),category:r.category.value,unit:r.unit.value,aliases:[]};s.customProducts.push(p);}if(appendItem(list,{...r.item,name,productId:p.id,emoji:p.emoji,icon_key:p.icon_key||null,category:r.category.value,quantity:r.qty.value||null,unit:r.unit.value})==='duplicate')duplicates++;}});if(ok){d.close();toast(`${selected.length-duplicates} agregados o reactivados · ${duplicates} ya estaban en la lista`);}},'button primary'));}
 function saveTemplate(){const {d,content}=dialog('Guardar como plantilla'),name=input(current().name);name.maxLength=60;content.append(field('Nombre',name),button('Guardar plantilla',async()=>{if(!name.value.trim())return;if(await commit('Plantilla guardada',s=>s.templates.push({id:uuid(),name:name.value.trim(),items:structuredClone(findList(s).items)})))d.close();},'button primary'));}
 function applyTheme(){const mode=state.settings.theme||'light',dark=mode==='dark'||mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=dark?'dark':'light';document.querySelector('meta[name="theme-color"]').content=dark?'#090f0d':'#f7f5ed';localStorage.setItem('verde-theme',mode);$('#theme-toggle').textContent=dark?'☀':'☾';$('#theme-toggle').setAttribute('aria-label',`Cambiar a modo ${dark?'claro':'oscuro'}`);}
-function setup(){const d=el('dialog');d.id='workspace-dialog';document.body.append(d);$('#list-dialog').remove();$('.workspace').id='local-section';const sectionView=el('section');sectionView.id='section-view';sectionView.hidden=true;$('.workspace').after(sectionView);const sync=el('span','sync-status');sync.id='sync-status';$('.breadcrumb').append(sync);const nav=$('.sidebar nav');nav.replaceChildren();for(const [key,label,icon]of [['lists','Mis listas','▤'],['catalog','Catálogo','▦'],['inspiration','Inspiración','✦'],['compare','Compara','⇄'],['profile','Perfil','○']]){const b=button('',()=>switchView(key),'nav-item');b.dataset.view=key;b.append(el('span','',icon),document.createTextNode(label));if(key==='lists'){const count=el('span','nav-count');count.id='list-count';b.append(count);}nav.append(b);}const mobile=nav.cloneNode(true);mobile.className='bottom-nav';mobile.querySelectorAll('.nav-count').forEach(n=>n.remove());mobile.querySelectorAll('button').forEach(b=>b.onclick=()=>switchView(b.dataset.view));document.body.append(mobile);
- $('#add-form').querySelector('button').textContent='Buscar';$('#item-name').placeholder='Busca: chiles, aguacate, 2 kg de papa…';$('#item-name').setAttribute('aria-expanded','false');$('#item-category').setAttribute('aria-label','Filtrar por categoría');const results=el('div','search-results');results.id='search-results';results.hidden=true;$('#add-form').after(results);const composerActions=el('div','composer-actions');composerActions.append(button('＋ Nuevo producto',()=>openProduct({},'create'),'text-button'),button('🎙 Dictar o pegar lista',()=>extras.voice(),'text-button'));results.after(composerActions);
- const toolbar=el('div','list-toolbar'),group=button('Agrupar categorías',()=>commit('',s=>s.settings.group=!s.settings.group)),tile=button('▦ Vista tarjetas',()=>commit('',s=>s.settings.view=s.settings.view==='tiles'?'rows':'tiles'));group.id='group-toggle';tile.id='view-toggle';toolbar.append(group,tile,button('Modo compra',()=>{document.body.classList.toggle('shopping');filter='pending';render();}),button('Compartir',()=>extras.sharing()),button('Actividad',()=>showActivity()));$('.list-heading').after(toolbar);$('#delete-list').textContent='•••';$('#delete-list').title='Opciones de lista';$('#delete-list').setAttribute('aria-label','Opciones de lista');$('#delete-list').onclick=listMenu;const recent=button('Recientes',()=>{filter='recent';render();},'filter');recent.dataset.filter='recent';$('.filters').append(recent);const spending=el('div','spending-summary');spending.id='spending-summary';$('.summary-card').append(spending);const budget=el('div','budget-summary');budget.id='budget-summary';$('.summary-card').append(budget);
- $('#add-form').onsubmit=e=>{e.preventDefault();const draft=parseItem($('#item-name').value,state.customProducts),p=exactProduct(draft.name,state.customProducts);if(p&&!['chile','chiles'].includes(normalize(draft.name)))addProduct(p,draft);else if(searchProducts(draft.name,state.customProducts).length)search();else openProduct(draft,'create');};$('#item-name').oninput=()=>{search();$('#item-name').setAttribute('aria-expanded',String(!$('#search-results').hidden));};$('#item-category').onchange=search;$('#item-name').onkeydown=e=>{if(e.key==='Escape'){$('#search-results').hidden=true;$('#item-name').setAttribute('aria-expanded','false');}};document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;render();});$('#list-select').onchange=e=>{filter='all';commit('',s=>s.active=e.target.value);};$('#new-list').onclick=()=>createList();$('#rename-list').onclick=()=>createList('rename');$('#focus-add').onclick=()=>{$('#item-name').scrollIntoView({behavior:'smooth',block:'center'});$('#item-name').focus({preventScroll:true});};$('#clear-done').onclick=()=>confirmAction('Retirar comprados','Se moverán a Recientes para que puedas reutilizarlos.',()=>commit('Comprados guardados en Recientes',s=>{const l=findList(s);l.recent=[...l.items.filter(i=>i.done),...l.recent].slice(0,150);l.items=l.items.filter(i=>!i.done);},true));$('#theme-toggle').onclick=async()=>{await commit('',s=>s.settings.theme=document.documentElement.dataset.theme==='dark'?'light':'dark');applyTheme();};matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyTheme);window.addEventListener('online',render);window.addEventListener('offline',render);document.title='DayList · Listas de compras';}
+function setup(){
+  const d=el('dialog');d.id='workspace-dialog';document.body.append(d);$('#list-dialog').remove();$('.workspace').id='local-section';const sectionView=el('section');sectionView.id='section-view';sectionView.hidden=true;$('.workspace').after(sectionView);const sync=el('span','sync-status');sync.id='sync-status';$('.breadcrumb').append(sync);
+  const nav=$('.sidebar nav');nav.replaceChildren();
+  for(const [key,label,icon]of [['lists','Mis listas','▤'],['catalog','Catálogo','▦'],['inspiration','Inspiración','✦'],['compare','Compara','⇄'],['profile','Perfil','👤']]){
+    const b=button('',()=>switchView(key),'nav-item');b.dataset.view=key;b.append(el('span','',icon),document.createTextNode(label));
+    if(key==='lists'){const count=el('span','nav-count');count.id='list-count';b.append(count);}
+    nav.append(b);
+  }
+  const mobile=nav.cloneNode(true);mobile.className='bottom-nav';mobile.querySelectorAll('.nav-count').forEach(n=>n.remove());mobile.querySelectorAll('button').forEach(b=>b.onclick=()=>switchView(b.dataset.view));document.body.append(mobile);
+
+  $('#add-form').querySelector('button').textContent='Agregar';
+  $('#item-name').placeholder='Ej. 2 kg de papa, aguacate, leche…';
+  const results=el('div','search-results');results.id='search-results';results.hidden=true;
+  $('#add-form').after(results);
+
+  $('#btn-voice-add').onclick=()=>extras.voice();
+  $('#btn-manual-add').onclick=()=>openProduct({},'create');
+
+  const toolbar=el('div','list-toolbar'),group=button('Agrupar por categoría',()=>commit('',s=>s.settings.group=!s.settings.group)),tile=button('▦ Vista tarjetas',()=>commit('',s=>s.settings.view=s.settings.view==='tiles'?'rows':'tiles'));group.id='group-toggle';tile.id='view-toggle';toolbar.append(group,tile,button('Modo compra',()=>{document.body.classList.toggle('shopping');filter='pending';render();}),button('Compartir',()=>extras.sharing()),button('Actividad',()=>showActivity()));$('.list-heading').after(toolbar);
+  $('#delete-list').onclick=listMenu;
+  const recent=button('Recientes',()=>{filter='recent';render();},'filter');recent.dataset.filter='recent';$('.filters').append(recent);
+  const spending=el('div','spending-summary');spending.id='spending-summary';$('.summary-card').append(spending);
+  const budget=el('div','budget-summary');budget.id='budget-summary';$('.summary-card').append(budget);
+
+  $('#add-form').onsubmit=e=>{e.preventDefault();const draft=parseItem($('#item-name').value,state.customProducts),p=exactProduct(draft.name,state.customProducts);if(p&&!['chile','chiles'].includes(normalize(draft.name)))addProduct(p,draft);else if(searchProducts(draft.name,state.customProducts).length)search();else openProduct(draft,'create');};
+  $('#item-name').oninput=()=>{search();$('#item-name').setAttribute('aria-expanded',String(!$('#search-results').hidden));};
+  $('#item-category').onchange=search;
+  $('#item-name').onkeydown=e=>{if(e.key==='Escape'){$('#search-results').hidden=true;$('#item-name').setAttribute('aria-expanded','false');}};
+  document.querySelectorAll('.filter').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;render();});
+  $('#list-select').onchange=e=>{filter='all';commit('',s=>s.active=e.target.value);};
+  $('#new-list').onclick=()=>createList();
+  $('#rename-list').onclick=()=>createList('rename');
+  $('#focus-add').onclick=()=>{$('#item-name').scrollIntoView({behavior:'smooth',block:'center'});$('#item-name').focus({preventScroll:true});};
+  $('#clear-done').onclick=()=>confirmAction('Retirar comprados','Se moverán a Recientes para que puedas reutilizarlos.',()=>commit('Comprados guardados en Recientes',s=>{const l=findList(s);l.recent=[...l.items.filter(i=>i.done),...l.recent].slice(0,150);l.items=l.items.filter(i=>!i.done);},true));
+  $('#theme-toggle').onclick=async()=>{await commit('',s=>s.settings.theme=document.documentElement.dataset.theme==='dark'?'light':'dark');applyTheme();};
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',applyTheme);
+  window.addEventListener('online',render);
+  window.addEventListener('offline',render);
+  document.title='DayList · Tu día, en orden';
+}
+
 let extras;
 try{state=await load();if(!state){let legacy;try{legacy=JSON.parse(localStorage.getItem('verde-lists'));}catch{}state=migrate(legacy);await write(state,undefined);}setup();$('.list-footer').firstElementChild.replaceWith($('#sync-status'));extras=mountExtras({state:()=>state,current,commit,toast,section,batchReview,confirmAction,applyTheme});applyTheme();switchView('lists');if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>toast('La instalación sin conexión no está disponible en este navegador.'));}catch(e){console.error(e);document.body.replaceChildren(empty('No se pudo abrir el almacenamiento local. Permite el almacenamiento del sitio y vuelve a cargar. Tus datos anteriores no se borraron.'));}
 
