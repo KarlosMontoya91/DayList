@@ -44,6 +44,12 @@ export async function signOut(){
   await f.signOut(f.auth);
 }
 
+export async function signInWithGoogle(){
+  const f = await firebase();
+  const provider = new f.GoogleAuthProvider();
+  return f.signInWithPopup(f.auth, provider);
+}
+
 export async function saveSharedList(list, members = []){
   const f = await firebase();
   if(!f.auth.currentUser) throw Error('AUTH_REQUIRED');

@@ -232,6 +232,22 @@ async function authForm(){
 
   const form=el('form'),mode=select({login:'Iniciar sesión',register:'Crear nueva cuenta'},'login'),name=input('','Tu nombre'),email=input('','','email'),password=input('','','password');
   email.required=true;password.required=true;password.minLength=6;
+
+  const btnGoogle = button('🌐 Continuar con Google', async()=>{
+    btnGoogle.disabled = true;
+    try {
+      await accounts.signInWithGoogle();
+      await authForm();
+      api.toast('¡Sesión iniciada con Google!');
+    } catch(err) {
+      message.textContent = accounts.authMessage(err);
+    } finally {
+      btnGoogle.disabled = false;
+    }
+  }, 'button secondary btn-google');
+
+  content.append(btnGoogle, el('div', 'divider-or', '— o usa tu correo —'));
+
   form.append(field('Acción',mode),field('Nombre (para nueva cuenta)',name),field('Correo electrónico',email),field('Contraseña',password));
   const submit=button('Continuar',null,'button primary');submit.type='submit';
   form.append(submit,button('Restablecer contraseña',async()=>{

@@ -44,4 +44,9 @@ html[data-theme=dark] .category-tab-btn.active{color:#112310}
 /* Ajuste del selector de listas activo */
 .list-title select{font-size:24px;font-weight:700;color:var(--ink);cursor:pointer;border-bottom:2px solid var(--green)!important;border-radius:4px;padding:2px 8px}
 
+/* Botón de Google Sign In */
+.btn-google{width:100%;justify-content:center;font-size:14px;font-weight:600;padding:12px;margin-bottom:14px;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);box-shadow:0 4px 12px #00000008}
+.btn-google:hover{background:var(--green-light);border-color:var(--green)}
+.divider-or{text-align:center;font-size:11px;color:var(--muted);margin:14px 0}
+
 
