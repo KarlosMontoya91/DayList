@@ -1,25 +1,43 @@
+const DEFAULT_FIREBASE_CONFIG = {
+  apiKey: "AIzaSyCxSGoJJzgTeO33-en4V2vuCWyb2EACawE",
+  authDomain: "daylist-1c865.firebaseapp.com",
+  projectId: "daylist-1c865",
+  storageBucket: "daylist-1c865.firebasestorage.app",
+  messagingSenderId: "921812655922",
+  appId: "1:921812655922:web:9d085875910db721bc812b",
+  measurementId: "G-JN6PFGFVBF"
+};
+
 let instance;
 export async function firebase(){
   if(instance) return instance;
   let config;
   try {
-    config = await fetch('/api/config').then(r=>r.json());
+    const res = await fetch('/api/config');
+    if(res.ok){
+      const data = await res.json();
+      config = data.firebase;
+    }
   } catch {
     config = null;
   }
-  if(!config?.firebase?.apiKey) throw Error('FIREBASE_NOT_CONFIGURED');
+  
+  const finalConfig = config || DEFAULT_FIREBASE_CONFIG;
+  if(!finalConfig?.apiKey) throw Error('FIREBASE_NOT_CONFIGURED');
+
   const [{initializeApp}, authModule, firestoreModule] = await Promise.all([
     import('https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js'),
     import('https://www.gstatic.com/firebasejs/13.0.0/firebase-auth.js'),
     import('https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js')
   ]);
-  const app = initializeApp(config.firebase);
+  const app = initializeApp(finalConfig);
   const auth = authModule.getAuth(app);
   const db = firestoreModule.getFirestore(app);
   auth.languageCode = 'es';
   instance = { app, auth, db, ...authModule, ...firestoreModule };
   return instance;
 }
+
 
 export async function signIn(email,password){
   const f = await firebase();
