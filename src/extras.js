@@ -639,7 +639,7 @@ async function syncCloudLists(){
             s.lists.push(cl);
           }
         }
-      });
+      }, false, true);
     });
   } catch(e) {
     console.warn('Error al sincronizar listas en la nube:', e);
