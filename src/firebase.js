@@ -108,12 +108,14 @@ export async function joinSharedList(listId){
   const f = await firebase();
   if(!f.auth.currentUser) throw Error('AUTH_REQUIRED');
   const listRef = f.doc(f.db, 'lists', listId);
-  await f.updateDoc(listRef, {
+  const snapBefore = await f.getDoc(listRef);
+  if(!snapBefore.exists()) return null;
+  await f.setDoc(listRef, {
     members: f.arrayUnion(f.auth.currentUser.email),
     updatedAt: new Date().toISOString()
-  });
-  const snap = await f.getDoc(listRef);
-  return snap.data();
+  }, { merge: true });
+  const snapAfter = await f.getDoc(listRef);
+  return snapAfter.data();
 }
 
 export async function subscribeToSharedLists(onListsUpdate){

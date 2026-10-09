@@ -316,6 +316,47 @@ function saveTemplate(){const {d,content}=dialog('Guardar como plantilla'),name=
 function applyTheme(){const mode=state.settings.theme||'light',dark=mode==='dark'||mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=dark?'dark':'light';document.querySelector('meta[name="theme-color"]').content=dark?'#090f0d':'#f7f5ed';localStorage.setItem('verde-theme',mode);$('#theme-toggle').textContent=dark?'☀':'☾';$('#theme-toggle').setAttribute('aria-label',`Cambiar a modo ${dark?'claro':'oscuro'}`);}
 
 async function checkSharedUrl(){
+  if(location.hash.startsWith('#share=')){
+    try {
+      const raw = location.hash.slice(7);
+      const jsonStr = decodeURIComponent(escape(atob(decodeURIComponent(raw))));
+      const shared = JSON.parse(jsonStr);
+      if(shared && shared.name && Array.isArray(shared.items)){
+        history.replaceState(null, '', location.pathname + location.search);
+        confirmAction(
+          `Lista compartida: "${shared.name}"`,
+          `${shared.sharedBy ? shared.sharedBy + ' te ha compartido esta lista' : 'Te han compartido esta lista'} con ${shared.items.length} productos. ¿Deseas agregarla a tus listas para verla o editarla?`,
+          async () => {
+            const id = uuid();
+            const items = shared.items.map(i => ({
+              ...i,
+              id: uuid(),
+              done: false,
+              purchaseId: null,
+              createdAt: new Date().toISOString()
+            }));
+            await commit(`Lista "${shared.name}" importada`, s => {
+              s.lists.push({
+                id,
+                name: shared.name,
+                items,
+                recent: [],
+                activity: [{ id: uuid(), text: `Lista compartida importada`, at: new Date().toISOString(), actor: 'Tú' }],
+                categoryOrder: []
+              });
+              s.active = id;
+              registerListAsTemplate({ name: shared.name, items });
+            });
+            switchView('lists');
+            return true;
+          }
+        );
+      }
+    } catch(err){
+      console.warn('Error al leer enlace compartido:', err);
+    }
+  }
+
   const params = new URLSearchParams(location.search);
   const listId = params.get('listId');
   if(listId){
@@ -325,15 +366,17 @@ async function checkSharedUrl(){
       await f.auth.authStateReady();
 
       if(!f.auth.currentUser){
-        // Requiere inicio de sesión antes de ver o unirse a la lista
         sessionStorage.setItem('pending_shared_list', listId);
         toast('Inicia sesión con Google para ver y colaborar en esta lista compartida.');
         extras?.authForm();
         return;
       }
 
-      // Usuario autenticado
-      const userList = await joinSharedList(listId);
+      let userList = await joinSharedList(listId);
+      if(!userList){
+        userList = await getSharedList(listId);
+      }
+
       if(userList){
         history.replaceState(null, '', location.pathname);
         await commit(`Lista "${userList.name}" sincronizada`, s => {
@@ -347,6 +390,8 @@ async function checkSharedUrl(){
         });
         switchView('lists');
         toast(`Te has unido a la lista compartida "${userList.name}".`);
+      } else {
+        toast('No se encontró la lista compartida o fue eliminada.');
       }
     } catch(err){
       console.warn('No se pudo cargar la lista compartida desde la nube:', err);
@@ -428,7 +473,6 @@ try{
   extras=mountExtras({state:()=>state,current,commit,toast,section,batchReview,confirmAction,applyTheme,switchView,createList,registerListAsTemplate,reuseTemplateAsNew,uuid});
   applyTheme();
   switchView('lists');
-  checkSharedUrl();
   
   import('./firebase.js').then(f => f.firebase()).then(async f => {
     await f.auth.authStateReady();
@@ -436,6 +480,7 @@ try{
       extras.updateHeaderUser(f.auth.currentUser);
       extras.syncCloudLists();
     }
+    await checkSharedUrl();
     f.onAuthStateChanged(f.auth, user => {
       extras.updateHeaderUser(user);
       if(user){
@@ -450,7 +495,9 @@ try{
         }
       }
     });
-  }).catch(()=>{});
+  }).catch(()=>{
+    checkSharedUrl();
+  });
 
   if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>toast('La instalación sin conexión no está disponible en este navegador.'));
 }catch(e){console.error(e);document.body.replaceChildren(empty('No se pudo abrir el almacenamiento local. Permite el almacenamiento del sitio y vuelve a cargar. Tus datos anteriores no se borraron.'));}
