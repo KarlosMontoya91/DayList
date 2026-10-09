@@ -3,7 +3,36 @@ import {parseItem,parseShoppingText} from './parser.js';
 import * as accounts from './firebase.js';
 let api,recognition;
 const uuid=()=>crypto.randomUUID();
-export function mountExtras(value){api=value;return {voice,sharing,authForm,updateHeaderUser,syncCloudLists};}
+export function mountExtras(value){api=value;return {voice,sharing,authForm,welcomeSplash,updateHeaderUser,syncCloudLists};}
+
+function welcomeSplash(){
+  const {d,content}=dialog('');
+  content.replaceChildren();
+
+  const container = el('div', 'google-auth-modal welcome-splash-container');
+  const logo = el('img', 'daylist-modal-logo');
+  logo.src = './icon.svg';
+  logo.alt = 'DayList Logo';
+  logo.width = 80;
+  logo.height = 80;
+
+  const title = el('h2', 'auth-modal-title', 'Bienvenido a DayList');
+  const tagline = el('span', 'pill', '✨ TU DÍA, EN ORDEN');
+  const subtitle = el('p', 'section-description', 'Organiza tus compras fácilmente, ahorra tiempo y comparte tus listas en tiempo real con familia y amigos.');
+  
+  const btnStart = el('button', 'button primary btn-google-official');
+  btnStart.textContent = 'Registrarme / Iniciar sesión con Google';
+  btnStart.onclick = () => {
+    d.close();
+    authForm();
+  };
+
+  const btnExplore = button('Explorar app primero', () => d.close(), 'text-button');
+  btnExplore.style.marginTop = '10px';
+
+  container.append(logo, title, tagline, subtitle, btnStart, btnExplore);
+  content.append(container);
+}
 export function renderExtra(view){({inspiration:renderInspiration,offers:renderOffers,profile:renderProfile})[view]();}
 
 function voice(){
@@ -588,13 +617,11 @@ async function syncCloudLists(){
     }
     if(unsubscribeRealtime){ unsubscribeRealtime(); }
 
-    // Upload any existing local lists to Cloud for this user if not yet uploaded
+    // Upload all local lists to Cloud for this user
     const currentState = api.state();
     if(currentState?.lists?.length){
       for(const localL of currentState.lists){
-        if(!localL.ownerEmail){
-          accounts.saveSharedList(localL, localL.members || []).catch(()=>{});
-        }
+        accounts.saveSharedList(localL, localL.members || []).catch(()=>{});
       }
     }
 

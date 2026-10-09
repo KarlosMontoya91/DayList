@@ -88,14 +88,27 @@ export async function saveSharedList(list, members = []){
 export async function loadUserSharedLists(){
   const f = await firebase();
   if(!f.auth.currentUser) return [];
-  const q = f.query(
+  const uid = f.auth.currentUser.uid;
+  const email = f.auth.currentUser.email;
+  
+  const qMembers = f.query(
     f.collection(f.db, 'lists'),
-    f.where('members', 'array-contains', f.auth.currentUser.email)
+    f.where('members', 'array-contains', email)
   );
-  const snapshot = await f.getDocs(q);
-  const lists = [];
-  snapshot.forEach(doc => lists.push(doc.data()));
-  return lists;
+  const qOwner = f.query(
+    f.collection(f.db, 'lists'),
+    f.where('ownerId', '==', uid)
+  );
+  
+  const [snapMembers, snapOwner] = await Promise.all([
+    f.getDocs(qMembers).catch(() => ({ forEach: () => {} })),
+    f.getDocs(qOwner).catch(() => ({ forEach: () => {} }))
+  ]);
+  
+  const map = new Map();
+  snapOwner.forEach?.(doc => map.set(doc.id, doc.data()));
+  snapMembers.forEach?.(doc => map.set(doc.id, doc.data()));
+  return Array.from(map.values());
 }
 
 export async function getSharedList(listId){
@@ -109,11 +122,15 @@ export async function getSharedList(listId){
 export async function joinSharedList(listId){
   const f = await firebase();
   if(!f.auth.currentUser) throw Error('AUTH_REQUIRED');
+  const userEmail = f.auth.currentUser.email;
   const listRef = f.doc(f.db, 'lists', listId);
   const snapBefore = await f.getDoc(listRef);
   if(!snapBefore.exists()) return null;
+  const data = snapBefore.data();
+  const currentMembers = Array.isArray(data.members) ? data.members : [];
+  const newMembers = Array.from(new Set([...currentMembers, userEmail]));
   await f.setDoc(listRef, {
-    members: f.arrayUnion(f.auth.currentUser.email),
+    members: newMembers,
     updatedAt: new Date().toISOString()
   }, { merge: true });
   const snapAfter = await f.getDoc(listRef);
@@ -123,17 +140,38 @@ export async function joinSharedList(listId){
 export async function subscribeToSharedLists(onListsUpdate){
   const f = await firebase();
   if(!f.auth.currentUser) return () => {};
-  const q = f.query(
+  const uid = f.auth.currentUser.uid;
+  const email = f.auth.currentUser.email;
+  
+  const qMembers = f.query(
     f.collection(f.db, 'lists'),
-    f.where('members', 'array-contains', f.auth.currentUser.email)
+    f.where('members', 'array-contains', email)
   );
-  return f.onSnapshot(q, (snapshot) => {
-    const lists = [];
-    snapshot.forEach(doc => lists.push(doc.data()));
-    onListsUpdate(lists);
-  }, (err) => {
-    console.warn('Firestore snapshot error:', err);
-  });
+  const qOwner = f.query(
+    f.collection(f.db, 'lists'),
+    f.where('ownerId', '==', uid)
+  );
+
+  const listsMap = new Map();
+  
+  const updateLists = () => {
+    onListsUpdate(Array.from(listsMap.values()));
+  };
+
+  const unsubMembers = f.onSnapshot(qMembers, (snapshot) => {
+    snapshot.forEach(doc => listsMap.set(doc.id, doc.data()));
+    updateLists();
+  }, err => console.warn('Snapshot members error:', err));
+
+  const unsubOwner = f.onSnapshot(qOwner, (snapshot) => {
+    snapshot.forEach(doc => listsMap.set(doc.id, doc.data()));
+    updateLists();
+  }, err => console.warn('Snapshot owner error:', err));
+
+  return () => {
+    unsubMembers();
+    unsubOwner();
+  };
 }
 
 export function getCurrentUser(){

@@ -486,6 +486,17 @@ try{
       extras.syncCloudLists();
     }
     await checkSharedUrl();
+
+    // Check if new user entering app without list link, show Welcome Splash
+    const params = new URLSearchParams(location.search);
+    if(!params.get('listId') && !location.hash.startsWith('#share=') && !f.auth.currentUser){
+      const hasSeenSplash = localStorage.getItem('daylist_seen_splash');
+      if(!hasSeenSplash){
+        localStorage.setItem('daylist_seen_splash', 'true');
+        setTimeout(() => extras.welcomeSplash(), 400);
+      }
+    }
+
     f.onAuthStateChanged(f.auth, user => {
       extras.updateHeaderUser(user);
       if(user){
