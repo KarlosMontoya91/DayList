@@ -104,6 +104,34 @@ export async function getSharedList(listId){
   return snap.data();
 }
 
+export async function joinSharedList(listId){
+  const f = await firebase();
+  if(!f.auth.currentUser) throw Error('AUTH_REQUIRED');
+  const listRef = f.doc(f.db, 'lists', listId);
+  await f.updateDoc(listRef, {
+    members: f.arrayUnion(f.auth.currentUser.email),
+    updatedAt: new Date().toISOString()
+  });
+  const snap = await f.getDoc(listRef);
+  return snap.data();
+}
+
+export async function subscribeToSharedLists(onListsUpdate){
+  const f = await firebase();
+  if(!f.auth.currentUser) return () => {};
+  const q = f.query(
+    f.collection(f.db, 'lists'),
+    f.where('members', 'array-contains', f.auth.currentUser.email)
+  );
+  return f.onSnapshot(q, (snapshot) => {
+    const lists = [];
+    snapshot.forEach(doc => lists.push(doc.data()));
+    onListsUpdate(lists);
+  }, (err) => {
+    console.warn('Firestore snapshot error:', err);
+  });
+}
+
 export function getCurrentUser(){
   return instance?.auth?.currentUser || null;
 }

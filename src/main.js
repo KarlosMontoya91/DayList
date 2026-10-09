@@ -91,7 +91,7 @@ async function reuseTemplateAsNew(template){
 function migrate(old){const next={version:2,revision:0,active:null,lists:[],customProducts:[],customCategories:[],templates:[],recipes:[],offers:[],cards:[],settings:{name:'Mi espacio',timezone:'America/Monterrey',view:'rows',group:false,budget:false,theme:localStorage.getItem('verde-theme')||'light'}};if(old?.lists?.length){next.lists=old.lists.map(l=>({...l,activity:[],recent:[],categoryOrder:[],items:l.items.map(i=>{const p=exactProduct(i.name);return {...i,productId:p?.id||'custom-'+uuid(),emoji:p?.emoji||productIcon(i.name),category:p?.category||i.category,quantity:i.qty==null?null:String(i.qty),unit:'piece',priority:'normal',brand:'',variant:'',notes:'',packageSize:null,packageUnit:'liter'};})}));next.active=old.active;for(const l of next.lists)for(const i of l.items)if(i.productId.startsWith('custom-')&&!next.customProducts.some(p=>normalize(p.name)===normalize(i.name)))next.customProducts.push({id:i.productId,name:i.name,emoji:i.emoji,category:i.category,unit:i.unit,aliases:[]});}if(!next.lists.length){const id=uuid();next.active=id;next.lists=[{id,name:'Mi compra semanal',items:[],recent:[],activity:[],categoryOrder:[]}];}if(!next.lists.some(l=>l.id===next.active))next.active=next.lists[0].id;return next;}
 function toast(text,canUndo=false){const t=$('#toast');t.replaceChildren(el('span','',text));if(canUndo&&undo)t.append(button('Deshacer',async()=>{const snapshot=undo;undo=null;await commit('Acción deshecha',draft=>Object.assign(draft,{...snapshot,revision:draft.revision}));},'undo'));t.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('visible'),7000);}
 function activity(list,text){list.activity??=[];list.activity.unshift({id:uuid(),text,at:new Date().toISOString(),actor:state.settings.name||'Tú'});list.activity=list.activity.slice(0,500);}
-async function commit(message,mutate,reversible=false){if(busy){toast('Espera a que termine el guardado.');return false;}busy=true;const old=structuredClone(state),draft=structuredClone(state);try{mutate(draft);draft.revision=(state.revision||0)+1;await write(draft,state.revision);state=draft;undo=reversible?old:null;render();if(message)toast(message,reversible);return true;}catch(e){if(e.message==='CONFLICT'){const fresh=await load();if(fresh)state=fresh;render();toast('Otra pestaña cambió la lista. Actualizamos la vista; revisa y vuelve a guardar.');}else if(e.message==='COLLISION')toast('Ya existe esa variante. Cambia sus notas o edita la entrada existente.');else toast('No se pudo guardar. Conservamos tu formulario; libera espacio e inténtalo de nuevo.');return false;}finally{busy=false;}}
+async function commit(message,mutate,reversible=false){if(busy){toast('Espera a que termine el guardado.');return false;}busy=true;const old=structuredClone(state),draft=structuredClone(state);try{mutate(draft);draft.revision=(state.revision||0)+1;await write(draft,state.revision);state=draft;undo=reversible?old:null;render();if(message)toast(message,reversible);const activeL=current();if(activeL && (activeL.ownerId || activeL.members?.length)){import('./firebase.js').then(f=>f.getCurrentUser()?f.saveSharedList(activeL, activeL.members):null).catch(()=>{});}return true;}catch(e){if(e.message==='CONFLICT'){const fresh=await load();if(fresh)state=fresh;render();toast('Otra pestaña cambió la lista. Actualizamos la vista; revisa y vuelve a guardar.');}else if(e.message==='COLLISION')toast('Ya existe esa variante. Cambia sus notas o edita la entrada existente.');else toast('No se pudo guardar. Conservamos tu formulario; libera espacio e inténtalo de nuevo.');return false;}finally{busy=false;}}
 function appendItem(list,item){const existing=list.items.find(i=>identity(i)===identity(item));if(existing){if(!existing.done)return 'duplicate';existing.done=false;existing.purchaseId=null;activity(list,`Volvió a agregar ${existing.name}`);return 'reactivated';}list.items.push({...item,id:uuid(),done:false,purchaseId:null,createdAt:new Date().toISOString()});activity(list,`Agregó ${item.name}`);return 'added';}
 async function addProduct(product,details={}){const item={name:product.name,productId:product.id,category:product.category,emoji:product.emoji,icon_key:product.icon_key||null,quantity:null,unit:product.unit||'piece',packageSize:null,packageUnit:'liter',brand:'',variant:'',notes:'',priority:'normal',...details};const existing=current().items.find(i=>identity(i)===identity(item)&&!i.done);if(existing){toast('Ya está en tu lista. Puedes editar su cantidad.');openProduct(existing,'edit');return;}filter='all';if(await commit(`${item.name} agregado`,s=>appendItem(findList(s),item))){$('#item-name').value='';$('#search-results').hidden=true;}}
 function confirmAction(title,message,action){const {d,content}=dialog(title);content.append(el('p','',message));const actions=el('div','actions');actions.append(button('Cancelar',()=>d.close()),button('Confirmar',async()=>{if(await action())d.close();},'button primary'));content.append(actions);}
@@ -316,73 +316,37 @@ function saveTemplate(){const {d,content}=dialog('Guardar como plantilla'),name=
 function applyTheme(){const mode=state.settings.theme||'light',dark=mode==='dark'||mode==='system'&&matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=dark?'dark':'light';document.querySelector('meta[name="theme-color"]').content=dark?'#090f0d':'#f7f5ed';localStorage.setItem('verde-theme',mode);$('#theme-toggle').textContent=dark?'☀':'☾';$('#theme-toggle').setAttribute('aria-label',`Cambiar a modo ${dark?'claro':'oscuro'}`);}
 
 async function checkSharedUrl(){
-  if(location.hash.startsWith('#share=')){
-    try {
-      const raw = location.hash.slice(7);
-      const jsonStr = decodeURIComponent(escape(atob(decodeURIComponent(raw))));
-      const shared = JSON.parse(jsonStr);
-      if(shared && shared.name && Array.isArray(shared.items)){
-        history.replaceState(null, '', location.pathname + location.search);
-        confirmAction(
-          `Lista compartida: "${shared.name}"`,
-          `${shared.sharedBy ? shared.sharedBy + ' te ha compartido esta lista' : 'Te han compartido esta lista'} con ${shared.items.length} productos. ¿Deseas agregarla a tus listas para verla o editarla?`,
-          async () => {
-            const id = uuid();
-            const items = shared.items.map(i => ({
-              ...i,
-              id: uuid(),
-              done: false,
-              purchaseId: null,
-              createdAt: new Date().toISOString()
-            }));
-            await commit(`Lista "${shared.name}" importada`, s => {
-              s.lists.push({
-                id,
-                name: shared.name,
-                items,
-                recent: [],
-                activity: [{ id: uuid(), text: `Lista compartida importada`, at: new Date().toISOString(), actor: 'Tú' }],
-                categoryOrder: []
-              });
-              s.active = id;
-              registerListAsTemplate({ name: shared.name, items });
-            });
-            switchView('lists');
-            return true;
-          }
-        );
-      }
-    } catch(err){
-      console.warn('Error al leer enlace compartido:', err);
-    }
-  }
-
   const params = new URLSearchParams(location.search);
   const listId = params.get('listId');
   if(listId){
     try {
-      const {firebase, getSharedList} = await import('./firebase.js');
-      await firebase();
-      const sharedDoc = await getSharedList(listId);
-      if(sharedDoc){
+      const {firebase, getSharedList, joinSharedList} = await import('./firebase.js');
+      const f = await firebase();
+      await f.auth.authStateReady();
+
+      if(!f.auth.currentUser){
+        // Requiere inicio de sesión antes de ver o unirse a la lista
+        sessionStorage.setItem('pending_shared_list', listId);
+        toast('Inicia sesión con Google para ver y colaborar en esta lista compartida.');
+        extras?.authForm();
+        return;
+      }
+
+      // Usuario autenticado
+      const userList = await joinSharedList(listId);
+      if(userList){
         history.replaceState(null, '', location.pathname);
-        confirmAction(
-          `Lista en la nube: "${sharedDoc.name}"`,
-          `Se encontró la lista "${sharedDoc.name}" compartida por ${sharedDoc.ownerEmail || 'un usuario'}. ¿Deseas abrirla en DayList?`,
-          async () => {
-            await commit(`Lista "${sharedDoc.name}" sincronizada`, s => {
-              const existing = s.lists.find(l => l.id === sharedDoc.id);
-              if(existing){
-                Object.assign(existing, sharedDoc);
-              } else {
-                s.lists.push(sharedDoc);
-              }
-              s.active = sharedDoc.id;
-            });
-            switchView('lists');
-            return true;
+        await commit(`Lista "${userList.name}" sincronizada`, s => {
+          const existing = s.lists.find(l => l.id === userList.id);
+          if(existing){
+            Object.assign(existing, userList);
+          } else {
+            s.lists.push(userList);
           }
-        );
+          s.active = userList.id;
+        });
+        switchView('lists');
+        toast(`Te has unido a la lista compartida "${userList.name}".`);
       }
     } catch(err){
       console.warn('No se pudo cargar la lista compartida desde la nube:', err);
@@ -474,7 +438,17 @@ try{
     }
     f.onAuthStateChanged(f.auth, user => {
       extras.updateHeaderUser(user);
-      if(user) extras.syncCloudLists();
+      if(user){
+        extras.syncCloudLists();
+        const pendingList = sessionStorage.getItem('pending_shared_list');
+        if(pendingList){
+          sessionStorage.removeItem('pending_shared_list');
+          const url = new URL(window.location.href);
+          url.searchParams.set('listId', pendingList);
+          history.replaceState(null, '', url.toString());
+          checkSharedUrl();
+        }
+      }
     });
   }).catch(()=>{});
 

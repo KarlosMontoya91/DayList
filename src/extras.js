@@ -577,26 +577,34 @@ function updateHeaderUser(user){
   }
 }
 
+let unsubscribeRealtime = null;
+
 async function syncCloudLists(){
   try {
     const f = await accounts.firebase();
-    if(!f.auth.currentUser) return;
-    const cloudLists = await accounts.loadUserSharedLists();
-    if(cloudLists?.length){
-      let addedCount = 0;
+    if(!f.auth.currentUser){
+      if(unsubscribeRealtime){ unsubscribeRealtime(); unsubscribeRealtime = null; }
+      return;
+    }
+    if(unsubscribeRealtime){ unsubscribeRealtime(); }
+
+    unsubscribeRealtime = await accounts.subscribeToSharedLists(async (cloudLists) => {
+      if(!cloudLists) return;
       await api.commit('', s => {
         for(const cl of cloudLists){
-          const local = s.lists.find(l => l.id === cl.id);
-          if(!local){
+          const localIndex = s.lists.findIndex(l => l.id === cl.id);
+          if(localIndex >= 0){
+            // Merge cloud list updates into local list if cloud version is newer or updated
+            const local = s.lists[localIndex];
+            if(!local.updatedAt || new Date(cl.updatedAt) >= new Date(local.updatedAt)){
+              s.lists[localIndex] = { ...local, ...cl };
+            }
+          } else {
             s.lists.push(cl);
-            addedCount++;
           }
         }
       });
-      if(addedCount > 0){
-        api.toast(`Se sincronizaron ${addedCount} listas compartidas.`);
-      }
-    }
+    });
   } catch(e) {
     console.warn('Error al sincronizar listas en la nube:', e);
   }
@@ -620,26 +628,16 @@ function sharing(){
     el('p', 'section-description', 'Copia este enlace y envíalo por WhatsApp o mensaje. La otra persona podrá entrar y agregar esta lista inmediatamente a su DayList.')
   );
 
-  const sharePayload = encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify({
-    id: currentList.id,
-    name: currentList.name,
-    items: (currentList.items || []).map(i => ({
-      name: i.name,
-      category: i.category,
-      quantity: i.quantity,
-      unit: i.unit,
-      emoji: i.emoji,
-      icon_key: i.icon_key,
-      packageSize: i.packageSize,
-      packageUnit: i.packageUnit,
-      brand: i.brand,
-      variant: i.variant,
-      notes: i.notes
-    })),
-    sharedBy: currentUser?.email || api.state().settings.name || 'DayList'
-  })))));
+  // Ensure list is uploaded/shared to cloud if user is logged in
+  if(currentUser && (!currentList.ownerId || !currentList.members?.includes(currentUser.email))){
+    try {
+      accounts.saveSharedList(currentList, currentList.members || []);
+    } catch(err){
+      console.warn('Auto save shared list error:', err);
+    }
+  }
 
-  const shareUrl = `${window.location.origin}${window.location.pathname}#share=${sharePayload}`;
+  const shareUrl = `${window.location.origin}${window.location.pathname}?listId=${currentList.id}`;
   
   const linkRow = el('div', 'share-link-box');
   const linkInput = el('input', 'share-link-input');
@@ -648,6 +646,9 @@ function sharing(){
   linkInput.value = shareUrl;
   
   const copyBtn = button('📋 Copiar enlace', async () => {
+    if(currentUser){
+      try { await accounts.saveSharedList(currentList, currentList.members || []); } catch{}
+    }
     try {
       await navigator.clipboard.writeText(shareUrl);
       api.toast('¡Enlace de la lista copiado al portapapeles!');
