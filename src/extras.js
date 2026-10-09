@@ -626,18 +626,24 @@ async function syncCloudLists(){
     }
 
     unsubscribeRealtime = await accounts.subscribeToSharedLists(async (cloudLists) => {
-      if(!cloudLists) return;
+      if(!cloudLists || !cloudLists.length) return;
       await api.commit('', s => {
+        let changed = false;
         for(const cl of cloudLists){
           const localIndex = s.lists.findIndex(l => l.id === cl.id);
           if(localIndex >= 0){
             const local = s.lists[localIndex];
-            if(!local.updatedAt || new Date(cl.updatedAt) >= new Date(local.updatedAt)){
+            if(JSON.stringify(local) !== JSON.stringify(cl)){
               s.lists[localIndex] = { ...local, ...cl };
+              changed = true;
             }
           } else {
             s.lists.push(cl);
+            changed = true;
           }
+        }
+        if(changed && !s.lists.some(l => l.id === s.active) && s.lists.length){
+          s.active = s.lists[0].id;
         }
       }, false, true);
     });
