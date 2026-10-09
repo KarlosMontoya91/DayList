@@ -71,12 +71,14 @@ export async function signInWithGoogle(){
 export async function saveSharedList(list, members = []){
   const f = await firebase();
   if(!f.auth.currentUser) throw Error('AUTH_REQUIRED');
+  const userEmail = f.auth.currentUser.email;
   const listRef = f.doc(f.db, 'lists', list.id);
+  const currentMembers = Array.isArray(list.members) ? list.members : [];
   const payload = {
     ...list,
-    ownerId: f.auth.currentUser.uid,
-    ownerEmail: f.auth.currentUser.email,
-    members: Array.from(new Set([...members, f.auth.currentUser.email])),
+    ownerId: list.ownerId || f.auth.currentUser.uid,
+    ownerEmail: list.ownerEmail || userEmail,
+    members: Array.from(new Set([...currentMembers, ...members, userEmail])),
     updatedAt: new Date().toISOString()
   };
   await f.setDoc(listRef, payload, { merge: true });

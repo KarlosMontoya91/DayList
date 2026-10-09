@@ -588,13 +588,22 @@ async function syncCloudLists(){
     }
     if(unsubscribeRealtime){ unsubscribeRealtime(); }
 
+    // Upload any existing local lists to Cloud for this user if not yet uploaded
+    const currentState = api.state();
+    if(currentState?.lists?.length){
+      for(const localL of currentState.lists){
+        if(!localL.ownerEmail){
+          accounts.saveSharedList(localL, localL.members || []).catch(()=>{});
+        }
+      }
+    }
+
     unsubscribeRealtime = await accounts.subscribeToSharedLists(async (cloudLists) => {
       if(!cloudLists) return;
       await api.commit('', s => {
         for(const cl of cloudLists){
           const localIndex = s.lists.findIndex(l => l.id === cl.id);
           if(localIndex >= 0){
-            // Merge cloud list updates into local list if cloud version is newer or updated
             const local = s.lists[localIndex];
             if(!local.updatedAt || new Date(cl.updatedAt) >= new Date(local.updatedAt)){
               s.lists[localIndex] = { ...local, ...cl };
