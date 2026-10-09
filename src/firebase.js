@@ -96,6 +96,18 @@ export async function loadUserSharedLists(){
   return lists;
 }
 
+export async function getSharedList(listId){
+  const f = await firebase();
+  const listRef = f.doc(f.db, 'lists', listId);
+  const snap = await f.getDoc(listRef);
+  if(!snap.exists()) return null;
+  return snap.data();
+}
+
+export function getCurrentUser(){
+  return instance?.auth?.currentUser || null;
+}
+
 export const authMessage = e => ({
   'FIREBASE_NOT_CONFIGURED': 'Para guardar en la nube y compartir con otras personas, es necesario conectar tu proyecto de Firebase en la configuración.',
   'AUTH_REQUIRED': 'Debes iniciar sesión con tu cuenta para compartir y guardar listas en la nube.',
@@ -104,4 +116,5 @@ export const authMessage = e => ({
   'auth/weak-password': 'La contraseña debe tener al menos 6 caracteres.',
   'auth/too-many-requests': 'Muchos intentos fallidos. Espera un momento antes de volver a intentarlo.',
   'auth/network-request-failed': 'Sin conexión a internet. Inténtalo de nuevo cuando estés en línea.'
-}[e.code || e.message] || 'Ocurrió un inconveniente al procesar tu solicitud. Tus listas locales se conservan intactas.');
+}[e?.code || e?.message] || 'Ocurrió un inconveniente al procesar tu solicitud. Tus listas locales se conservan intactas.');
+

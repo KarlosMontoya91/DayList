@@ -3,7 +3,7 @@ import {parseItem,parseShoppingText} from './parser.js';
 import * as accounts from './firebase.js';
 let api,recognition;
 const uuid=()=>crypto.randomUUID();
-export function mountExtras(value){api=value;return {voice,sharing,authForm,updateHeaderUser};}
+export function mountExtras(value){api=value;return {voice,sharing,authForm,updateHeaderUser,syncCloudLists};}
 export function renderExtra(view){({inspiration:renderInspiration,offers:renderOffers,profile:renderProfile})[view]();}
 
 function voice(){
@@ -92,21 +92,62 @@ function voice(){
 const starters=[{name:'Desayunos',names:['Huevo de gallina','Pan integral','Leche entera','Plátano']},{name:'Limpieza mensual',names:['Detergente para ropa','Esponja','Papel higiénico']},{name:'Parrillada',names:['Carne para asar','Cebolla blanca','Tortilla de maíz','Aguacate']},{name:'Fiesta infantil',names:['Globo','Vela de cumpleaños','Plato para fiesta']},{name:'Lunch escolar',names:['Manzana','Pan integral','Queso panela']},{name:'Mascotas',names:['Croqueta para perro','Bolsa para desechos']},{name:'Bebé',names:['Pañal','Toallita húmeda']},{name:'Compra semanal',names:['Jitomate','Papa','Huevo de gallina','Arroz blanco']}];
 
 function renderInspiration(){
-  const state=api.state(),box=api.section('Ideas para tu próxima lista','Plantillas reutilizables y tus propias recetas. Tú eliges qué agregar.');
-  box.append(button('＋ Nueva receta',()=>recipeForm(),'button primary'));
-  const grid=el('div','inspiration-grid');
-  box.append(el('h3','','Plantillas'),grid);
-  for(const t of [...state.templates,...starters]){
-    const card=el('article','feature-card');
-    card.append(el('span','feature-icon','🧺'),el('h3','',t.name),el('p','',`${t.items?.length||t.names.length} productos`),button('Elegir productos',()=>api.batchReview(t.items||t.names.map(n=>parseItem(n,state.customProducts)),t.name)));
-    if(t.id)card.append(button('Eliminar plantilla',()=>api.confirmAction('Eliminar plantilla',t.name,()=>api.commit('Plantilla eliminada',s=>s.templates=s.templates.filter(x=>x.id!==t.id))),'text-button'));
-    grid.append(card);
+  const state=api.state(),box=api.section('Historial de listas y plantillas','Reutiliza tus listas anteriores en 1 clic o explora sugerencias para tu próxima compra.');
+  box.append(button('＋ Nueva receta',()=>recipeForm(),'button secondary'));
+
+  // Historial de listas del usuario (Plantillas)
+  box.append(el('h3','','📋 Listas guardadas como plantillas'));
+  const userTemplates = state.templates || [];
+  if(!userTemplates.length){
+    box.append(empty('Las listas que crees se guardarán aquí automáticamente como plantillas para que puedas reutilizarlas en el futuro sin empezar desde cero.'));
+  } else {
+    const grid=el('div','inspiration-grid');
+    for(const t of userTemplates){
+      const card=el('article','feature-card template-card');
+      card.append(
+        el('span','feature-icon','🧺'),
+        el('h3','',t.name),
+        el('p','',`${t.items?.length||0} productos registrados`)
+      );
+      const actions=el('div','template-actions');
+      actions.append(
+        button('＋ Reutilizar como nueva lista',()=>api.reuseTemplateAsNew(t),'button primary'),
+        button('Elegir productos',()=>api.batchReview(t.items||[],t.name),'button secondary')
+      );
+      if(t.id){
+        actions.append(button('Eliminar del historial',()=>api.confirmAction('Eliminar plantilla',t.name,()=>api.commit('Plantilla eliminada',s=>s.templates=s.templates.filter(x=>x.id!==t.id))),'text-button'));
+      }
+      card.append(actions);
+      grid.append(card);
+    }
+    box.append(grid);
   }
-  box.append(el('h3','','Mis recetas'));
+
+  // Plantillas sugeridas predeterminadas
+  box.append(el('h3','','✨ Plantillas sugeridas'));
+  const starterGrid=el('div','inspiration-grid');
+  for(const t of starters){
+    const card=el('article','feature-card template-card');
+    card.append(
+      el('span','feature-icon','🛒'),
+      el('h3','',t.name),
+      el('p','',`${t.names.length} productos`)
+    );
+    const actions=el('div','template-actions');
+    actions.append(
+      button('＋ Usar como nueva lista',()=>api.reuseTemplateAsNew({name:t.name,items:t.names.map(n=>parseItem(n,state.customProducts))}),'button primary'),
+      button('Elegir productos',()=>api.batchReview(t.names.map(n=>parseItem(n,state.customProducts)),t.name),'button secondary')
+    );
+    card.append(actions);
+    starterGrid.append(card);
+  }
+  box.append(starterGrid);
+
+  box.append(el('h3','','🍲 Mis recetas'));
   if(!state.recipes.length)box.append(empty('Guarda una receta con sus ingredientes y agrégalos a tu lista cuando los necesites.'));
   for(const r of state.recipes){
     const card=el('article','feature-card recipe-card');
-    card.append(el('h3','',r.title),el('p','',`${r.servings} porciones`),button(r.favorite?'★ Favorita':'☆ Marcar favorita',()=>api.commit('',s=>{const recipe=s.recipes.find(x=>x.id===r.id);recipe.favorite=!recipe.favorite;}),'text-button'),button('Ver receta',()=>recipeDetails(r)),button('Editar',()=>recipeForm(r),'text-button'));
+    card.append(el('h3','',r.title),el('p','',`${r.servings} porciones`),button(r.favorite?'★ Favorita':'☆ Marcar favorita',()=>api.commit('',s=>{const recipe=s.recipes.find(x=>x.id===r.id);recipe.favorite=!recipe.favorite;}),'text-button'),button('Ver receta',()=>recipeDetails(r),'button secondary'),button('Editar',()=>recipeForm(r),'text-button'));
     box.append(card);
   }
 }
@@ -186,23 +227,214 @@ function loyalty(){
 }
 
 function renderProfile(){
-  const state=api.state(),box=api.section('Perfil y configuración','Gestiona tus datos locales y tu sesión para sincronizar y compartir listas.'),card=el('section','feature-card'),name=input(state.settings.name),timezone=input(state.settings.timezone),theme=select({light:'Claro',dark:'Oscuro',system:'Sistema'},state.settings.theme),budget=input('','','checkbox');
-  budget.checked=state.settings.budget;name.maxLength=80;
-  const form=el('form');
-  form.append(field('Nombre',name),field('Zona horaria',timezone),field('Apariencia',theme),field('Activar presupuesto estimado',budget));
-  const b=button('Guardar preferencias',null,'button primary');b.type='submit';form.append(b);
-  form.onsubmit=async e=>{
-    e.preventDefault();
-    try{new Intl.DateTimeFormat('es-MX',{timeZone:timezone.value});}catch{api.toast('Escribe una zona horaria válida.');return;}
-    await api.commit('Preferencias guardadas',s=>Object.assign(s.settings,{name:name.value.trim(),timezone:timezone.value,theme:theme.value,budget:budget.checked}));
-    api.applyTheme();
-  };
-  card.append(form);
-  box.append(card);
+  const state = api.state(), box = api.section('Perfil y configuración', 'Gestiona tu avatar, nombre, cuenta vinculada y datos de la aplicación.');
+  
+  // 1. Tarjeta de Usuario: Foto de perfil desde archivos locales + Nombre
+  const profileCard = el('section', 'feature-card');
+  profileCard.append(el('h3', '', 'Tu perfil de usuario'));
 
-  const account=el('section','feature-card');
-  account.append(el('h3','','Cuenta y Nube (Firebase)'),el('p','','Inicia sesión para sincronizar tus listas en la nube y colaborar con tu familia o amigos en tiempo real.'),button('Gestionar cuenta de usuario',()=>authForm(),'button primary'));
-  box.append(account,button('Exportar copia local de datos',()=>download('daylist-datos.json',state)),button('Tarjetas de fidelidad',()=>loyalty()));
+  const avatarRow = el('div', 'profile-avatar-row');
+  const avatarBox = el('div', 'profile-avatar-large');
+  
+  function refreshAvatarDisplay(){
+    avatarBox.replaceChildren();
+    if(state.settings.avatar){
+      const img = el('img', 'user-card-avatar');
+      img.src = state.settings.avatar;
+      img.alt = 'Foto de perfil';
+      avatarBox.append(img);
+    } else {
+      let u = null;
+      try { u = accounts.getCurrentUser(); } catch{}
+      if(u?.photoURL){
+        const img = el('img', 'user-card-avatar');
+        img.src = u.photoURL;
+        img.alt = 'Avatar de Google';
+        avatarBox.append(img);
+      } else {
+        avatarBox.textContent = getInitials(state.settings.name || u?.displayName || 'Tú');
+      }
+    }
+  }
+  refreshAvatarDisplay();
+
+  const avatarActions = el('div', 'profile-avatar-actions');
+  const fileInput = el('input');
+  fileInput.type = 'file';
+  fileInput.accept = 'image/jpeg,image/png,image/webp';
+  fileInput.hidden = true;
+  fileInput.onchange = async () => {
+    const file = fileInput.files[0];
+    if(!file) return;
+    if(!['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size > 5 * 1024 * 1024){
+      api.toast('Por favor selecciona una imagen JPG, PNG o WebP de hasta 5 MB.');
+      return;
+    }
+    try {
+      const bitmap = await createImageBitmap(file);
+      const canvas = document.createElement('canvas');
+      const size = 180;
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      const minDim = Math.min(bitmap.width, bitmap.height);
+      const sx = (bitmap.width - minDim) / 2;
+      const sy = (bitmap.height - minDim) / 2;
+      ctx.drawImage(bitmap, sx, sy, minDim, minDim, 0, 0, size, size);
+      const dataUrl = canvas.toDataURL('image/webp', 0.85);
+      bitmap.close();
+      await api.commit('Foto de perfil actualizada', s => {
+        s.settings.avatar = dataUrl;
+      });
+      refreshAvatarDisplay();
+      updateHeaderUser(accounts.getCurrentUser());
+      api.toast('Foto de perfil actualizada correctamente.');
+    } catch(err){
+      api.toast('No se pudo procesar la imagen.');
+    }
+  };
+
+  const changePhotoBtn = button('📷 Cambiar foto de perfil desde archivos', () => fileInput.click(), 'button secondary');
+  avatarActions.append(changePhotoBtn, fileInput);
+
+  if(state.settings.avatar){
+    const removePhotoBtn = button('Quitar foto personalizada', async () => {
+      await api.commit('Foto eliminada', s => {
+        s.settings.avatar = null;
+      });
+      refreshAvatarDisplay();
+      updateHeaderUser(accounts.getCurrentUser());
+      api.toast('Foto personalizada removida.');
+      renderProfile();
+    }, 'text-button');
+    avatarActions.append(removePhotoBtn);
+  }
+
+  avatarRow.append(avatarBox, avatarActions);
+
+  const nameInput = input(state.settings.name || 'Mi espacio');
+  nameInput.maxLength = 80;
+
+  const saveProfileBtn = button('Guardar nombre', async () => {
+    if(!nameInput.value.trim()){
+      api.toast('El nombre no puede estar vacío.');
+      return;
+    }
+    await api.commit('Nombre de perfil actualizado', s => {
+      s.settings.name = nameInput.value.trim();
+    });
+    refreshAvatarDisplay();
+    updateHeaderUser(accounts.getCurrentUser());
+    api.toast('Nombre guardado.');
+  }, 'button primary');
+
+  profileCard.append(avatarRow, field('Nombre para tus listas', nameInput), saveProfileBtn);
+  box.append(profileCard);
+
+  // 2. Tarjeta de Cuenta Vinculada (Google/Firebase)
+  const accountCard = el('section', 'feature-card');
+  accountCard.append(el('h3', '', 'Cuenta vinculada'));
+
+  let currentUser = null;
+  try { currentUser = accounts.getCurrentUser(); } catch{}
+
+  if(currentUser){
+    const connectedBox = el('div', 'auth-connected-box');
+    const badge = el('span', 'pill', '✓ Cuenta activa y sincronizada');
+    const emailInfo = el('p', '', `Vinculada con Google: `);
+    emailInfo.append(el('strong', '', currentUser.email));
+    
+    const logoutBtn = button('Cerrar sesión', async () => {
+      logoutBtn.disabled = true;
+      try {
+        await accounts.signOut();
+        api.toast('Sesión cerrada correctamente.');
+        updateHeaderUser(null);
+        renderProfile();
+      } catch(e) {
+        api.toast('Error al cerrar sesión: ' + accounts.authMessage(e));
+        logoutBtn.disabled = false;
+      }
+    }, 'button secondary');
+
+    connectedBox.append(badge, emailInfo, logoutBtn);
+    accountCard.append(connectedBox);
+  } else {
+    accountCard.append(
+      el('p', '', 'Modo local (Sin cuenta vinculada). Tus listas y productos están guardados únicamente en este dispositivo.'),
+      el('p', 'section-description', 'Inicia sesión con tu cuenta de Google para respaldar tus listas en la nube y colaborar con otros usuarios en tiempo real.'),
+      button('Iniciar sesión con Google', () => authForm(), 'button primary')
+    );
+  }
+  box.append(accountCard);
+
+  // 3. Preferencias de la aplicación (Apariencia, Presupuesto, Respaldos)
+  const prefsCard = el('section', 'feature-card');
+  prefsCard.append(el('h3', '', 'Preferencias y respaldo'));
+  const theme = select({light:'Claro',dark:'Oscuro',system:'Sistema'}, state.settings.theme);
+  const budget = input('','','checkbox');
+  budget.checked = state.settings.budget;
+
+  const prefsForm = el('form');
+  prefsForm.append(field('Apariencia del tema', theme), field('Activar presupuesto estimado', budget));
+  const savePrefsBtn = button('Guardar preferencias', null, 'button secondary');
+  savePrefsBtn.type = 'submit';
+  prefsForm.append(savePrefsBtn);
+  prefsForm.onsubmit = async e => {
+    e.preventDefault();
+    await api.commit('Preferencias guardadas', s => {
+      s.settings.theme = theme.value;
+      s.settings.budget = budget.checked;
+    });
+    api.applyTheme();
+    api.toast('Preferencias actualizadas.');
+  };
+
+  const backupRow = el('div', 'backup-actions');
+  backupRow.append(
+    button('Exportar copia de seguridad (JSON)', () => download('daylist-datos.json', state), 'button secondary'),
+    button('Tarjetas de fidelidad', () => loyalty(), 'button secondary')
+  );
+  prefsCard.append(prefsForm, el('div', 'share-section-divider'), backupRow);
+  box.append(prefsCard);
+
+  // 4. Zona de peligro: Restaurar datos ("Resetear app")
+  const dangerCard = el('section', 'danger-zone-card');
+  dangerCard.append(
+    el('h3', 'danger-heading', 'Zona de peligro: Restaurar datos de la app'),
+    el('p', 'section-description', 'Si deseas borrar todos tus datos y reiniciar la aplicación desde cero, utiliza esta opción.')
+  );
+
+  const resetBtn = button('⚠️ Restaurar datos (Resetear app)', () => {
+    const {d, content} = dialog('¿Restablecer aplicación y borrar todos los datos?');
+    content.append(
+      el('p', 'danger-warning-text', '⚠️ Esta acción borrará todos los datos registrados y perderás tus preferencias y listas creadas. La aplicación volverá a su estado inicial de fábrica y esto NO se puede deshacer.'),
+      el('p', '', '¿Estás seguro de que deseas continuar con el restablecimiento?')
+    );
+    const actions = el('div', 'actions');
+    actions.append(
+      button('Cancelar', () => d.close(), 'button secondary'),
+      button('Sí, borrar todo y restaurar', async () => {
+        d.close();
+        try {
+          if(window.indexedDB && indexedDB.deleteDatabase){
+            indexedDB.deleteDatabase('super-hogar-local');
+          }
+          localStorage.clear();
+          try { await accounts.signOut(); } catch{}
+          window.location.reload();
+        } catch(err){
+          console.error(err);
+          localStorage.clear();
+          window.location.reload();
+        }
+      }, 'button destructive')
+    );
+    content.append(actions);
+  }, 'button destructive');
+
+  dangerCard.append(resetBtn);
+  box.append(dangerCard);
 }
 
 async function authForm(){
@@ -251,6 +483,7 @@ async function authForm(){
         $('#workspace-dialog').close();
         api.toast('Sesión cerrada correctamente.');
         updateHeaderUser(null);
+        if(api.state().view === 'profile') renderProfile();
       }, 'button destructive');
 
       container.append(logoutBtn);
@@ -275,6 +508,7 @@ async function authForm(){
       updateHeaderUser(result.user);
       $('#workspace-dialog').close();
       api.toast(`¡Bienvenido, ${result.user.displayName || 'Usuario'}!`);
+      syncCloudLists();
     } catch(err) {
       message.textContent = accounts.authMessage(err);
     } finally {
@@ -299,10 +533,14 @@ function updateHeaderUser(user){
   const sidebarAvatar = $('#sidebar-avatar');
   const sidebarStatus = $('#sidebar-status-text');
 
+  const customAvatar = api?.state()?.settings?.avatar;
+
   if(user){
     const initials = getInitials(user.displayName || user.email);
     if(avatarSlot){
-      if(user.photoURL){
+      if(customAvatar){
+        avatarSlot.innerHTML = `<img src="${customAvatar}" class="user-header-img" alt="Avatar">`;
+      } else if(user.photoURL){
         avatarSlot.innerHTML = `<img src="${user.photoURL}" class="user-header-img" alt="Avatar">`;
       } else {
         avatarSlot.textContent = initials;
@@ -310,7 +548,9 @@ function updateHeaderUser(user){
     }
     if(labelSlot) labelSlot.textContent = user.displayName ? user.displayName.split(' ')[0] : 'Cuenta';
     if(sidebarAvatar){
-      if(user.photoURL){
+      if(customAvatar){
+        sidebarAvatar.innerHTML = `<img src="${customAvatar}" class="user-sidebar-img" alt="Avatar">`;
+      } else if(user.photoURL){
         sidebarAvatar.innerHTML = `<img src="${user.photoURL}" class="user-sidebar-img" alt="Avatar">`;
       } else {
         sidebarAvatar.textContent = initials;
@@ -318,40 +558,221 @@ function updateHeaderUser(user){
     }
     if(sidebarStatus) sidebarStatus.textContent = user.email;
   } else {
-    if(avatarSlot) avatarSlot.textContent = '👤';
+    if(avatarSlot){
+      if(customAvatar){
+        avatarSlot.innerHTML = `<img src="${customAvatar}" class="user-header-img" alt="Avatar">`;
+      } else {
+        avatarSlot.textContent = '👤';
+      }
+    }
     if(labelSlot) labelSlot.textContent = 'Iniciar sesión';
-    if(sidebarAvatar) sidebarAvatar.textContent = '👤';
+    if(sidebarAvatar){
+      if(customAvatar){
+        sidebarAvatar.innerHTML = `<img src="${customAvatar}" class="user-sidebar-img" alt="Avatar">`;
+      } else {
+        sidebarAvatar.textContent = '👤';
+      }
+    }
     if(sidebarStatus) sidebarStatus.textContent = 'Guardado en este dispositivo';
   }
 }
 
+async function syncCloudLists(){
+  try {
+    const f = await accounts.firebase();
+    if(!f.auth.currentUser) return;
+    const cloudLists = await accounts.loadUserSharedLists();
+    if(cloudLists?.length){
+      let addedCount = 0;
+      await api.commit('', s => {
+        for(const cl of cloudLists){
+          const local = s.lists.find(l => l.id === cl.id);
+          if(!local){
+            s.lists.push(cl);
+            addedCount++;
+          }
+        }
+      });
+      if(addedCount > 0){
+        api.toast(`Se sincronizaron ${addedCount} listas compartidas.`);
+      }
+    }
+  } catch(e) {
+    console.warn('Error al sincronizar listas en la nube:', e);
+  }
+}
 
 function sharing(){
-  const {content}=dialog('Compartir lista');
+  const {d, content} = dialog('Compartir lista');
   const currentList = api.current();
-  content.append(el('h3','',`Compartir "${currentList.name}"`),el('p','','Invita a otras personas por correo para que puedan colaborar en esta lista.'));
+  let currentUser = null;
+  try { currentUser = accounts.getCurrentUser(); } catch{}
+
+  content.append(
+    el('h3', '', `Compartir "${currentList.name}"`),
+    el('p', '', 'Comparte esta lista mediante enlace directo o invita colaboradores por correo electrónico.')
+  );
+
+  // 1. COMPARTIR POR ENLACE DIRECTO DE LA APP
+  const linkSection = el('div', 'share-box');
+  linkSection.append(
+    el('h4', '', '🔗 Compartir mediante enlace directo'),
+    el('p', 'section-description', 'Copia este enlace y envíalo por WhatsApp o mensaje. La otra persona podrá entrar y agregar esta lista inmediatamente a su DayList.')
+  );
+
+  const sharePayload = encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify({
+    id: currentList.id,
+    name: currentList.name,
+    items: (currentList.items || []).map(i => ({
+      name: i.name,
+      category: i.category,
+      quantity: i.quantity,
+      unit: i.unit,
+      emoji: i.emoji,
+      icon_key: i.icon_key,
+      packageSize: i.packageSize,
+      packageUnit: i.packageUnit,
+      brand: i.brand,
+      variant: i.variant,
+      notes: i.notes
+    })),
+    sharedBy: currentUser?.email || api.state().settings.name || 'DayList'
+  })))));
+
+  const shareUrl = `${window.location.origin}${window.location.pathname}#share=${sharePayload}`;
   
-  const memberEmail = input('','correo@ejemplo.com','email');
+  const linkRow = el('div', 'share-link-box');
+  const linkInput = el('input', 'share-link-input');
+  linkInput.type = 'text';
+  linkInput.readOnly = true;
+  linkInput.value = shareUrl;
+  
+  const copyBtn = button('📋 Copiar enlace', async () => {
+    try {
+      await navigator.clipboard.writeText(shareUrl);
+      api.toast('¡Enlace de la lista copiado al portapapeles!');
+    } catch {
+      linkInput.select();
+      document.execCommand('copy');
+      api.toast('Enlace copiado.');
+    }
+  }, 'button primary');
+
+  linkRow.append(linkInput, copyBtn);
+  linkSection.append(linkRow);
+
+  if(navigator.share){
+    const nativeShareBtn = button('📲 Compartir enlace por aplicación...', async () => {
+      try {
+        await navigator.share({
+          title: `DayList: ${currentList.name}`,
+          text: `Te comparto mi lista de compras "${currentList.name}" en DayList:`,
+          url: shareUrl
+        });
+      } catch{}
+    }, 'button secondary');
+    linkSection.append(nativeShareBtn);
+  }
+
+  content.append(linkSection, el('div', 'share-section-divider'));
+
+  // 2. COLABORACIÓN POR CORREO (FIREBASE) Y MIEMBROS INVOLUCRADOS
+  const cloudSection = el('div', 'share-cloud-section');
+  cloudSection.append(
+    el('h4', '', '👥 Colaboradores en la nube'),
+    el('p', 'section-description', 'Invita a otras personas por correo para colaborar. Al iniciar sesión con ese correo, la lista les aparecerá y verán a los miembros involucrados.')
+  );
+
+  currentList.members ??= [];
+  const membersBox = el('div', 'share-members-list');
+
+  function renderMembersList(){
+    membersBox.replaceChildren();
+    
+    // Propietario
+    const ownerItem = el('div', 'share-member-item');
+    const ownerInfo = el('div', 'share-member-info');
+    ownerInfo.append(
+      el('span', '', '👑'),
+      el('strong', '', currentList.ownerEmail || currentUser?.email || (api.state().settings.name + ' (Tú)')),
+      el('span', 'share-member-badge', 'Propietario')
+    );
+    ownerItem.append(ownerInfo);
+    membersBox.append(ownerItem);
+
+    // Otros colaboradores
+    const guestMembers = (currentList.members || []).filter(m => m !== (currentList.ownerEmail || currentUser?.email));
+    for(const m of guestMembers){
+      const mItem = el('div', 'share-member-item');
+      const mInfo = el('div', 'share-member-info');
+      mInfo.append(
+        el('span', '', '👤'),
+        el('span', '', m),
+        el('span', 'share-member-badge', 'Colaborador')
+      );
+      const removeBtn = button('✕', async () => {
+        currentList.members = currentList.members.filter(x => x !== m);
+        await api.commit('Colaborador eliminado', s => {
+          const l = s.lists.find(x => x.id === currentList.id);
+          if(l) l.members = currentList.members;
+        });
+        if(currentUser){
+          try { await accounts.saveSharedList(currentList, currentList.members); } catch{}
+        }
+        renderMembersList();
+      }, 'remove');
+      removeBtn.title = 'Quitar colaborador';
+      mItem.append(mInfo, removeBtn);
+      membersBox.append(mItem);
+    }
+  }
+
+  renderMembersList();
+  cloudSection.append(el('strong', '', 'Miembros involucrados en esta lista:'), membersBox);
+
+  const memberEmail = input('', 'correo@ejemplo.com', 'email');
   memberEmail.required = true;
-  const statusMsg = el('p','form-error');
+  const statusMsg = el('p', 'form-error');
 
-  content.append(field('Correo electrónico de la persona invitada', memberEmail), statusMsg);
-
-  content.append(button('Enviar invitación y guardar en la nube', async()=>{
-    if(!memberEmail.value.trim() || !memberEmail.reportValidity()){
+  const inviteBtn = button('＋ Agregar colaborador y sincronizar', async () => {
+    const email = memberEmail.value.trim().toLowerCase();
+    if(!email || !memberEmail.reportValidity()){
       statusMsg.textContent = 'Por favor ingresa un correo válido.';
       return;
     }
+    if(!currentList.members.includes(email)){
+      currentList.members.push(email);
+      await api.commit(`Colaborador agregado: ${email}`, s => {
+        const l = s.lists.find(x => x.id === currentList.id);
+        if(l) l.members = currentList.members;
+      });
+    }
+
     try {
       statusMsg.textContent = 'Guardando lista en la nube...';
-      const result = await accounts.saveSharedList(currentList, [memberEmail.value.trim()]);
-      api.toast(`Lista compartida con ${memberEmail.value.trim()}`);
-      $('#workspace-dialog').close();
+      await accounts.saveSharedList(currentList, currentList.members);
+      statusMsg.textContent = '';
+      memberEmail.value = '';
+      renderMembersList();
+      api.toast(`Colaborador ${email} agregado y sincronizado.`);
     } catch(e) {
       statusMsg.textContent = accounts.authMessage(e);
+      renderMembersList();
     }
-  }, 'button primary'));
+  }, 'button primary');
 
-  content.append(el('p','section-description','También puedes exportar un archivo con la lista para enviarlo por mensaje:'), button('Exportar copia en archivo JSON',()=>download(currentList.name+'.json',currentList),'text-button'));
+  cloudSection.append(
+    field('Correo electrónico de la persona invitada', memberEmail),
+    statusMsg,
+    inviteBtn
+  );
+
+  content.append(cloudSection, el('div', 'share-section-divider'));
+
+  // 3. Exportar JSON
+  content.append(
+    el('p', 'section-description', 'También puedes exportar un archivo de respaldo con la lista para enviarlo por mensaje:'),
+    button('Exportar copia en archivo JSON', () => download(currentList.name + '.json', currentList), 'text-button')
+  );
 }
 
